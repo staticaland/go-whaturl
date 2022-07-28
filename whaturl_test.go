@@ -29,9 +29,9 @@ func TestCreateOrgLink(t *testing.T) {
 	}
 }
 
-func TestToLink(t *testing.T) {
-	got := ToLink("https://aftenposten.no", "markdown")
-	want := "[Forsiden - Aftenposten](https://aftenposten.no)"
+func TestCreateHtmlLink(t *testing.T) {
+	got := CreateLink("https://aftenposten.no", "Forsiden - Aftenposten", "html")
+	want := `<a href="https://aftenposten.no">Forsiden - Aftenposten</a>`
 
 	if got != want {
 		t.Errorf("got %q want %q", got, want)

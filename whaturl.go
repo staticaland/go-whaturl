@@ -51,6 +51,8 @@ func CreateLink(url, title, dialect string) string {
 		return fmt.Sprintf("[%s](%s)", title, url)
 	case "org":
 		return fmt.Sprintf("[[%s][%s]]", url, title)
+	case "html":
+		return fmt.Sprintf(`<a href="%s">%s</a>`, url, title)
 	}
 
 	return url
