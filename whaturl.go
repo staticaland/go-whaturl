@@ -1,14 +1,24 @@
 package main
 
 import (
+	"bufio"
+	"flag"
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"regexp"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/google/uuid"
 )
+
+type link struct {
+	url   string
+	id    string
+	title string
+}
 
 func GetTitle(url string) string {
 
@@ -61,15 +71,39 @@ func CreateLink(url, title, dialect string) string {
 
 func main() {
 
+	var linkFormat string
+	flag.StringVar(&linkFormat, "format", "markdown", "Specify link format")
+	flag.Parse()
+	fmt.Println(linkFormat)
+
 	re := regexp.MustCompile(`(?i)(?:\[(?P<title>[^\]]*)\]\(|\b)(?P<url>(?:(?:https?)://|(?:www)\.)[-A-Z0-9+&@/%?=~_|$!:,.;]*[A-Z0-9+&@#/%=~_|$])\)?`)
 
-	s := "Hello https://vg.no and https://reddit.com"
+	scanner := bufio.NewScanner(os.Stdin)
 
-	matches := re.FindAllString(s, -1)
+	for scanner.Scan() {
 
-	for _, url := range matches {
-		title := GetTitle(url)
-		fmt.Println(strings.Replace(s, url, CreateLink(url, title, "markdown"), -1))
+		s := scanner.Text()
+
+		matches := re.FindAllString(s, -1)
+
+		matchesEnriched := make([]link, 0, len(matches))
+
+		for _, url := range matches {
+
+			id := uuid.New()
+
+			l := link{url: url, id: id.String()}
+
+			matchesEnriched = append(matchesEnriched, l)
+
+		}
+
+		for _, link := range matchesEnriched {
+			title := GetTitle(link.url)
+			s = strings.Replace(s, link.url, CreateLink(link.url, title, linkFormat), -1)
+		}
+
+		fmt.Println(s)
 	}
 
 }
