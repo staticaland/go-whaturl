@@ -4,21 +4,32 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"regexp"
+	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 )
 
-func ToLink(url, dialect string) string {
+func GetTitle(url string) string {
 
-	resp, err := http.Get(url)
+	client := &http.Client{}
+
+	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalln(err)
+	}
+
+	req.Header.Set("User-Agent", "Golang_Whaturl/1.0")
+
+	resp, err := client.Do(req)
+	if err != nil {
+		log.Fatalln(err)
 	}
 
 	defer resp.Body.Close()
 
 	if resp.StatusCode != 200 {
-		log.Fatalf("failed to fetch data: %d %s", resp.StatusCode, resp.Status)
+		return "Error fetching link"
 	}
 
 	doc, err := goquery.NewDocumentFromReader(resp.Body)
@@ -29,10 +40,34 @@ func ToLink(url, dialect string) string {
 
 	title := doc.Find("title").Text()
 
-	return fmt.Sprintf("[%s](%s)", title, url)
+	return title
+
+}
+
+func CreateLink(url, title, dialect string) string {
+
+	switch dialect {
+	case "markdown":
+		return fmt.Sprintf("[%s](%s)", title, url)
+	case "org":
+		return fmt.Sprintf("[[%s][%s]]", url, title)
+	}
+
+	return url
 
 }
 
 func main() {
-	// input := "I love going to https://vg.no and https://reddit.com"
+
+	re := regexp.MustCompile(`(?i)(?:\[(?P<title>[^\]]*)\]\(|\b)(?P<url>(?:(?:https?)://|(?:www)\.)[-A-Z0-9+&@/%?=~_|$!:,.;]*[A-Z0-9+&@#/%=~_|$])\)?`)
+
+	s := "Hello https://vg.no and https://reddit.com"
+
+	matches := re.FindAllString(s, -1)
+
+	for _, url := range matches {
+		title := GetTitle(url)
+		fmt.Println(strings.Replace(s, url, CreateLink(url, title, "markdown"), -1))
+	}
+
 }
