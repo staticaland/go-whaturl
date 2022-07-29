@@ -9,6 +9,8 @@ echo "I like https://github.com" | whaturl
 I like [GitHub: Where the world builds software · GitHub](https://github.com)
 #+end_src
 
+Inspired by [[http://brettterpstra.com/2015/02/18/titler-system-service/][Titler by Brett Terpstra]]) for Mac OS and [[https://github.com/rexim/org-cliplink][org-cliplink]]) for Emacs.
+
 * Usage
 
 If you run the program, it will wait for input from [[https://en.wikipedia.org/wiki/Standard_streams#Standard_input_(stdin)][stdin]].
@@ -75,3 +77,8 @@ go run whaturl.go
 #+begin_src sh
 go test
 #+end_src
+
+* Similar projects
+
+- [[https://github.com/sindresorhus/linkify-urls][sindresorhus/linkify-urls]]
+- [[https://github.com/sindresorhus/urls-md][sindresorhus/urls-md]]
