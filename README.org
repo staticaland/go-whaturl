@@ -44,7 +44,7 @@ I use =reformatter.el= (see [[https://github.com/staticaland/doom-emacs-config/b
 
 [[https://github.com/staticaland/go-whaturl/releases][Check out releases for pre-built binaries]].
 
-* Homebrew
+** Homebrew
 
 A Homebrew formula is included at [[./Formula/whaturl.rb][Formula/whaturl.rb]].
 
