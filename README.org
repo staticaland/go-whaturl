@@ -1,6 +1,13 @@
 #+title: whaturl
 
-Hi!
+=whaturl= replaces URLs found in text with a markup hyperlink with the contents
+of the =<title>= tag in the HTML of the URL. It works like a typical [[https://en.wikipedia.org/wiki/Filter_%28software%29][Unix
+filter]]:
+
+#+begin_src sh
+echo "I like https://github.com" | whaturl
+I like [GitHub: Where the world builds software · GitHub](https://github.com)
+#+end_src
 
 * Usage
 
@@ -11,12 +18,27 @@ whaturl
 #+end_src
 
 You can write lines to it and get a result by pressing enter. To finish, press
-Ctrl+D to communicate [[https://en.wikipedia.org/wiki/End-of-Transmission_character][end-of-transmission]]. The more common approach is to pipe
-something directly:
+Ctrl+D to communicate [[https://en.wikipedia.org/wiki/End-of-Transmission_character][end-of-transmission]]. However, the more common use-case is
+to pipe something directly:
 
 #+begin_src sh
 cat urls | whaturl
 #+end_src
+
+* Editor integration
+
+** Vim
+
+#+begin_example
+nnoremap <leader>l :%!whaturl<CR>
+vnoremap <leader>l :!whaturl<CR>
+#+end_example
+
+This is reminiscent of the [[https://blog.sanctum.geek.nz/vim-koans/][Vim Kōan /Master Wq and the Markdown acolyte/]].
+
+** Emacs
+
+I use =reformatter.el= (see [[https://github.com/staticaland/doom-emacs-config/blob/master/modules/editor/reformatter/config.el][my reformatter.el config here]]).
 
 * Installation
 
