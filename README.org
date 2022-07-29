@@ -14,3 +14,19 @@ A Homebrew formula is included at [[./Formula/whaturl.rb][Formula/whaturl.rb]].
 brew tap staticaland/go-whaturl https://github.com/staticaland/go-whaturl
 brew install whaturl
 #+end_src
+
+* Build and run
+
+#+begin_src sh
+go build whaturl.go
+#+end_src
+
+#+begin_src sh
+go run whaturl.go
+#+end_src
+
+* Test
+
+#+begin_src sh
+go test
+#+end_src

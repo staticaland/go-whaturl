@@ -1,6 +1,8 @@
 brews:
   -
     name: whaturl
+    description: "A CLI for creating titled markup language links out of text containing raw URLs"
+    homepage: "https://github.com/staticaland/go-whaturl"
 
     goarm: 6
 
@@ -11,3 +13,6 @@ brews:
       name: go-whaturl
 
     folder: Formula
+
+    install: |
+      bin.install "whaturl"

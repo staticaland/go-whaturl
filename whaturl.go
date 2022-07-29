@@ -11,6 +11,7 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/PuerkitoBio/purell"
 	"github.com/google/uuid"
 )
 
@@ -29,7 +30,7 @@ func GetTitle(url string) string {
 		log.Fatalln(err)
 	}
 
-	req.Header.Set("User-Agent", "Golang_Whaturl/1.0")
+	req.Header.Set("User-Agent", "")
 
 	resp, err := client.Do(req)
 	if err != nil {
@@ -39,7 +40,7 @@ func GetTitle(url string) string {
 	defer resp.Body.Close()
 
 	if resp.StatusCode != 200 {
-		return "Error fetching link"
+		return url
 	}
 
 	doc, err := goquery.NewDocumentFromReader(resp.Body)
@@ -48,7 +49,7 @@ func GetTitle(url string) string {
 		log.Fatal(err)
 	}
 
-	title := doc.Find("title").Text()
+	title := doc.Find("title").First().Text()
 
 	return title
 
@@ -74,9 +75,8 @@ func main() {
 	var linkFormat string
 	flag.StringVar(&linkFormat, "format", "markdown", "Specify link format")
 	flag.Parse()
-	fmt.Println(linkFormat)
 
-	re := regexp.MustCompile(`(?i)(?:\[(?P<title>[^\]]*)\]\(|\b)(?P<url>(?:(?:https?)://|(?:www)\.)[-A-Z0-9+&@/%?=~_|$!:,.;]*[A-Z0-9+&@#/%=~_|$])\)?`)
+	re := regexp.MustCompile(`(?i)\b(?:[a-z][\w.+-]+:(?:/{1,3}|[?+]?[a-z0-9%]))(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s\x60!()\[\]{};:'".,<>?«»“”‘’])`)
 
 	scanner := bufio.NewScanner(os.Stdin)
 
@@ -90,9 +90,9 @@ func main() {
 
 		for _, url := range matches {
 
-			id := uuid.New()
+			id := uuid.New().String()
 
-			l := link{url: url, id: id.String()}
+			l := link{url: url, id: id}
 
 			matchesEnriched = append(matchesEnriched, l)
 
@@ -100,7 +100,8 @@ func main() {
 
 		for _, link := range matchesEnriched {
 			title := GetTitle(link.url)
-			s = strings.Replace(s, link.url, CreateLink(link.url, title, linkFormat), -1)
+			normalized_url, _ := purell.NormalizeURLString(link.url, purell.FlagsUsuallySafeGreedy|purell.FlagRemoveDuplicateSlashes|purell.FlagRemoveFragment)
+			s = strings.Replace(s, link.url, CreateLink(normalized_url, title, linkFormat), -1)
 		}
 
 		fmt.Println(s)
