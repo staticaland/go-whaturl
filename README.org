@@ -53,7 +53,7 @@ brew tap staticaland/go-whaturl https://github.com/staticaland/go-whaturl
 brew install whaturl
 #+end_src
 
-Uninstall:
+To uninstall:
 
 #+begin_src sh
 brew uninstall whaturl
