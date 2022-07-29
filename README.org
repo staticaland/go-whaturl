@@ -4,14 +4,15 @@ Hi!
 
 * Usage
 
-If you run the program, it will wait for input from STDIN.
+If you run the program, it will wait for input from [[https://en.wikipedia.org/wiki/Standard_streams#Standard_input_(stdin)][stdin]].
 
 #+begin_src sh
 whaturl
 #+end_src
 
 You can write lines to it and get a result by pressing enter. To finish, press
-Ctrl+D to send [[https://en.wikipedia.org/wiki/End-of-Transmission_character][EOT]]. The more common approach is to pipe something directly:
+Ctrl+D to communicate [[https://en.wikipedia.org/wiki/End-of-Transmission_character][end-of-transmission]]. The more common approach is to pipe
+something directly:
 
 #+begin_src sh
 cat urls | whaturl
