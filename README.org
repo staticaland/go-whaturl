@@ -38,7 +38,7 @@ This is reminiscent of the [[https://blog.sanctum.geek.nz/vim-koans/][Vim Kōan 
 
 ** Emacs
 
-I use =reformatter.el= (see [[https://github.com/staticaland/doom-emacs-config/blob/master/modules/editor/reformatter/config.el][my reformatter.el config here]]).
+I use =reformatter.el= (see [[https://github.com/staticaland/doom-emacs-config/blob/master/modules/editor/reformatter/config.el][my reformatter.el configuration here]]).
 
 * Installation
 
