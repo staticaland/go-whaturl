@@ -1,0 +1,13 @@
+brews:
+  -
+    name: whaturl
+
+    goarm: 6
+
+    goamd64: v3
+
+    tap:
+      owner: staticaland
+      name: go-whaturl
+
+    folder: Formula
