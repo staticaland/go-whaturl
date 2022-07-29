@@ -2,6 +2,21 @@
 
 Hi!
 
+* Usage
+
+If you run the program, it will wait for input from STDIN.
+
+#+begin_src sh
+whaturl
+#+end_src
+
+You can write lines to it and get a result by pressing enter. To finish, press
+Ctrl+D to send [[https://en.wikipedia.org/wiki/End-of-Transmission_character][EOT]]. The more common approach is to pipe something directly:
+
+#+begin_src sh
+cat urls | whaturl
+#+end_src
+
 * Installation
 
 [[https://github.com/staticaland/go-whaturl/releases][Check out releases for pre-built binaries]].
