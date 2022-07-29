@@ -1,9 +1,9 @@
 name: Vale
 on:
-  push:
-    branches:
-      - main
   pull_request:
+    paths:
+      - '**.org'
+      - '**.md'
 
 jobs:
   vale:
