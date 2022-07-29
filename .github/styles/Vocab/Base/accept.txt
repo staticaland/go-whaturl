@@ -1,3 +1,5 @@
 whaturl
 Wq
 stdin
+Titler
+Terpstra
