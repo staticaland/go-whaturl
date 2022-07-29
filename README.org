@@ -1,0 +1,16 @@
+#+title: whaturl
+
+Hi!
+
+* Installation
+
+[[https://github.com/staticaland/go-whaturl/releases][Check out releases for pre-built binaries]].
+
+* Homebrew
+
+A Homebrew formula is included at [[./Formula/whaturl.rb][Formula/whaturl.rb]].
+
+#+begin_src sh
+brew tap staticaland/go-whaturl https://github.com/staticaland/go-whaturl
+brew install whaturl
+#+end_src
