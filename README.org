@@ -104,5 +104,8 @@ go test
 
 * Similar projects
 
+- [[https://github.com/Skn0tt/markdown-link-expander][markdown-link-expander]]
+- [[https://github.com/kukushi/PasteURL][kukushi/PasteURL]]
+- [[https://github.com/zolrath/obsidian-auto-link-title][zolrath/obsidian-auto-link-title]]
 - [[https://github.com/sindresorhus/linkify-urls][sindresorhus/linkify-urls]]
 - [[https://github.com/sindresorhus/urls-md][sindresorhus/urls-md]]
