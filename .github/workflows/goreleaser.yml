@@ -1,5 +1,5 @@
 ---
-name: goreleaser
+name: GoReleaser
 
 on:
   push:
