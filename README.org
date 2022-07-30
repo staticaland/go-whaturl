@@ -137,6 +137,8 @@ go test
 
 * Bookmarklets
 
+Org-mode:
+
 #+begin_src js
 javascript:(
     function(){
@@ -147,6 +149,23 @@ javascript:(
                 +']['
                 +document.title.replace(/ [-,|].*$/,'')
                 +']]'
+        )
+    }
+)()
+#+end_src
+
+Markdown:
+
+#+begin_src js
+javascript:(
+    function(){
+        prompt(
+            '',
+            '['
+                +[location.href](<document.title.replace(/ [-,|].*$/,'')>)
+                +']('
+                +location.href
+                +')'
         )
     }
 )()
