@@ -1,5 +1,10 @@
 #+begin_html
-<a href="https://github.com/staticaland/go-whaturl/actions/workflows/go.yml"> <img alt="Build" src="https://github.com/staticaland/go-whaturl/actions/workflows/go.yml/badge.svg" /> </a> <img alt="Vale" src="https://github.com/staticaland/go-whaturl/actions/workflows/vale.yml/badge.svg" /> <img alt="Release" src="https://github.com/staticaland/go-whaturl/actions/workflows/goreleaser.yml/badge.svg" /> <img alt="Lint" src="https://github.com/staticaland/go-whaturl/actions/workflows/superlinter.yml/badge.svg" />
+<p><a href="https://github.com/staticaland/go-whaturl/actions/workflows/go.yml">
+<img alt="Build" src="https://github.com/staticaland/go-whaturl/actions/workflows/go.yml/badge.svg" />
+</a>
+<img alt="Vale" src="https://github.com/staticaland/go-whaturl/actions/workflows/vale.yml/badge.svg" />
+<img alt="Release" src="https://github.com/staticaland/go-whaturl/actions/workflows/goreleaser.yml/badge.svg" />
+<img alt="Lint" src="https://github.com/staticaland/go-whaturl/actions/workflows/superlinter.yml/badge.svg" /></p>
 #+end_html
 
 * whaturl
