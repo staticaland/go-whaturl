@@ -16,9 +16,8 @@ import (
 )
 
 type link struct {
-	url   string
-	id    string
-	title string
+	url string
+	id  string
 }
 
 func GetTitle(url string) string {
@@ -103,14 +102,14 @@ func main() {
 
 			url := link.url
 
-			if *normalizeURL == true {
+			if *normalizeURL {
 				url, _ = pu.NormalizeURLString(
 					link.url,
 					pu.FlagsUsuallySafeGreedy|pu.FlagRemoveDuplicateSlashes|pu.FlagRemoveFragment,
 				)
 			}
 
-			line = strings.Replace(line, link.url, CreateLink(url, title, *linkFormat), -1)
+			line = strings.ReplaceAll(line, link.url, CreateLink(url, title, *linkFormat))
 		}
 
 		fmt.Println(line)
