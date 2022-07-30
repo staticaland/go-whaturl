@@ -1,3 +1,5 @@
+* whaturl
+
 #+begin_html
 <p><a href="https://github.com/staticaland/go-whaturl/actions/workflows/go.yml">
 <img alt="Build" src="https://github.com/staticaland/go-whaturl/actions/workflows/go.yml/badge.svg" />
@@ -7,7 +9,7 @@
 <img alt="Lint" src="https://github.com/staticaland/go-whaturl/actions/workflows/superlinter.yml/badge.svg" /></p>
 #+end_html
 
-* whaturl
+* About
 
 =whaturl= replaces URLs found in text with a markup hyperlink with the contents
 of the =<title>= tag in the HTML of the URL. It works like a typical [[https://en.wikipedia.org/wiki/Filter_%28software%29][Unix
@@ -21,6 +23,19 @@ I like [GitHub: Where the world builds software · GitHub](https://github.com)
 Inspired by [[http://brettterpstra.com/2015/02/18/titler-system-service/][Titler by Brett Terpstra]]) for Mac OS and [[https://github.com/rexim/org-cliplink][org-cliplink]]) for Emacs.
 
 * Usage
+
+#+begin_src sh :wrap sh :results verbatim :exports result
+whaturl --help 2>&1
+#+end_src
+
+#+RESULTS:
+#+begin_sh
+Usage of whaturl:
+  -format string
+    	Specify link format (default "markdown")
+  -normalize
+    	Normalize URLs (default true)
+#+end_sh
 
 If you run the program, it will wait for input from [[https://en.wikipedia.org/wiki/Standard_streams#Standard_input_(stdin)][stdin]].
 
