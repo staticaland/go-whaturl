@@ -24,18 +24,18 @@ Inspired by [[http://brettterpstra.com/2015/02/18/titler-system-service/][Titler
 
 * Usage
 
-#+begin_src sh :wrap sh :results verbatim :exports results
+#+begin_src sh :wrap src sh :results raw :exports results
 whaturl --help 2>&1
 #+end_src
 
 #+RESULTS:
-#+begin_sh
+#+begin_src sh
 Usage of whaturl:
   -format string
     	Specify link format (default "markdown")
   -normalize
     	Normalize URLs (default true)
-#+end_sh
+#+end_src
 
 If you run the program, it will wait for input from [[https://en.wikipedia.org/wiki/Standard_streams#Standard_input_(stdin)][stdin]].
 
