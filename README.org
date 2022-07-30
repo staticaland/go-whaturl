@@ -11,6 +11,8 @@
 
 * About
 
+#+HTML: <img src="https://user-images.githubusercontent.com/1691190/181923598-e6436a5a-87aa-43b6-b735-2550055083a7.jpg" align="right" width="13%">
+
 =whaturl= replaces URLs found in text with a markup hyperlink with the contents
 of the =<title>= tag in the HTML of the URL. It works like a typical [[https://en.wikipedia.org/wiki/Filter_%28software%29][Unix
 filter]]:
