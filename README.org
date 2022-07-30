@@ -1,5 +1,11 @@
 #+title: whaturl
 
+#+begin_html
+<a href="https://github.com/staticaland/go-whaturl/actions/workflows/go.yml">
+<img alt="Build" src="https://github.com/staticaland/go-whaturl/actions/workflows/go.yml/badge.svg" />
+</a>
+#+end_html
+
 =whaturl= replaces URLs found in text with a markup hyperlink with the contents
 of the =<title>= tag in the HTML of the URL. It works like a typical [[https://en.wikipedia.org/wiki/Filter_%28software%29][Unix
 filter]]:
