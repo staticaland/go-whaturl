@@ -128,6 +128,7 @@ go test
 - [[https://github.com/sindresorhus/linkify-urls][sindresorhus/linkify-urls]]
 - [[https://github.com/sindresorhus/urls-md][sindresorhus/urls-md]]
 - [[https://github.com/alphapapa/org-protocol-capture-html][alphapapa/org-protocol-capture-html]]
+- [[https://github.com/deathau/markdownload][deathau/markdownload]]
 
 
 * See also
