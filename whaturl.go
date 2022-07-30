@@ -7,12 +7,12 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"regexp"
 	"strings"
 
 	gq "github.com/PuerkitoBio/goquery"
 	pu "github.com/PuerkitoBio/purell"
 	"github.com/google/uuid"
+	"mvdan.cc/xurls/v2"
 )
 
 type link struct {
@@ -75,7 +75,7 @@ func main() {
 	normalizeURL := flag.Bool("normalize", true, "Normalize URLs")
 	flag.Parse()
 
-	urlRe := regexp.MustCompile(`(?i)\b(?:[a-z][\w.+-]+:(?:/{1,3}|[?+]?[a-z0-9%]))(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s\x60!()\[\]{};:'".,<>?«»“”‘’])`)
+	urlRe := xurls.Strict()
 
 	scanner := bufio.NewScanner(os.Stdin)
 
