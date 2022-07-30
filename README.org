@@ -9,6 +9,7 @@
 <img alt="Lint" src="https://github.com/staticaland/go-whaturl/actions/workflows/superlinter.yml/badge.svg" /></p>
 #+end_html
 
+
 * About
 
 =whaturl= replaces URLs found in text with a markup hyperlink with the contents
@@ -21,6 +22,7 @@ I like [GitHub: Where the world builds software · GitHub](https://github.com)
 #+end_src
 
 Inspired by [[http://brettterpstra.com/2015/02/18/titler-system-service/][Titler by Brett Terpstra]]) for Mac OS and [[https://github.com/rexim/org-cliplink][org-cliplink]]) for Emacs.
+
 
 * Usage
 
@@ -51,7 +53,9 @@ to pipe something directly:
 cat urls | whaturl
 #+end_src
 
+
 * Editor integration
+
 
 ** Vim
 
@@ -62,13 +66,16 @@ vnoremap <leader>l :!whaturl<CR>
 
 This is reminiscent of the [[https://blog.sanctum.geek.nz/vim-koans/][Vim Kōan /Master Wq and the Markdown acolyte/]].
 
+
 ** Emacs
 
 I use =reformatter.el= (see [[https://github.com/staticaland/doom-emacs-config/blob/master/modules/editor/reformatter/config.el][my reformatter.el configuration here]]).
 
+
 * Installation
 
 [[https://github.com/staticaland/go-whaturl/releases][Check out releases for pre-built binaries]].
+
 
 ** Homebrew
 
@@ -86,6 +93,7 @@ brew uninstall whaturl
 brew untap staticaland/go-whaturl
 #+end_src
 
+
 * Build and run
 
 #+begin_src sh
@@ -96,11 +104,13 @@ go build whaturl.go
 go run whaturl.go
 #+end_src
 
+
 * Test
 
 #+begin_src sh
 go test
 #+end_src
+
 
 * Similar projects
 
@@ -109,3 +119,27 @@ go test
 - [[https://github.com/zolrath/obsidian-auto-link-title][zolrath/obsidian-auto-link-title]]
 - [[https://github.com/sindresorhus/linkify-urls][sindresorhus/linkify-urls]]
 - [[https://github.com/sindresorhus/urls-md][sindresorhus/urls-md]]
+- [[https://github.com/alphapapa/org-protocol-capture-html][alphapapa/org-protocol-capture-html]]
+
+
+* See also
+
+- [[https://benjamincongdon.me/blog/2020/06/27/Vim-Tip-Paste-Markdown-Link-with-Automatic-Title-Fetching/][Vim Tip: Paste Markdown Link with Automatic Title Fetching]]
+
+
+* Bookmarklets
+
+#+begin_src js
+javascript:(
+    function(){
+        prompt(
+            '',
+            '[['
+                +location.href
+                +']['
+                +document.title.replace(/ [-,|].*$/,'')
+                +']]'
+        )
+    }
+)()
+#+end_src
