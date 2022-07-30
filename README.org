@@ -86,6 +86,13 @@ brew tap staticaland/go-whaturl https://github.com/staticaland/go-whaturl
 brew install whaturl
 #+end_src
 
+If you watch the project (Watch → Custom → Releases) you can easily upgrade to
+the latest version:
+
+#+begin_src sh
+brew upgrade whaturl
+#+end_src
+
 To uninstall:
 
 #+begin_src sh
