@@ -76,15 +76,15 @@ func main() {
 	flag.StringVar(&linkFormat, "format", "markdown", "Specify link format")
 	flag.Parse()
 
-	re := regexp.MustCompile(`(?i)\b(?:[a-z][\w.+-]+:(?:/{1,3}|[?+]?[a-z0-9%]))(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s\x60!()\[\]{};:'".,<>?«»“”‘’])`)
+	urlRe := regexp.MustCompile(`(?i)\b(?:[a-z][\w.+-]+:(?:/{1,3}|[?+]?[a-z0-9%]))(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s\x60!()\[\]{};:'".,<>?«»“”‘’])`)
 
 	scanner := bufio.NewScanner(os.Stdin)
 
 	for scanner.Scan() {
 
-		s := scanner.Text()
+		line := scanner.Text()
 
-		matches := re.FindAllString(s, -1)
+		matches := urlRe.FindAllString(line, -1)
 
 		matchesEnriched := make([]link, 0, len(matches))
 
@@ -101,10 +101,10 @@ func main() {
 		for _, link := range matchesEnriched {
 			title := GetTitle(link.url)
 			normalized_url, _ := purell.NormalizeURLString(link.url, purell.FlagsUsuallySafeGreedy|purell.FlagRemoveDuplicateSlashes|purell.FlagRemoveFragment)
-			s = strings.Replace(s, link.url, CreateLink(normalized_url, title, linkFormat), -1)
+			line = strings.Replace(line, link.url, CreateLink(normalized_url, title, linkFormat), -1)
 		}
 
-		fmt.Println(s)
+		fmt.Println(line)
 	}
 
 }
