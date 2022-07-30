@@ -10,15 +10,14 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/PuerkitoBio/goquery"
-	"github.com/PuerkitoBio/purell"
+	gq "github.com/PuerkitoBio/goquery"
+	pu "github.com/PuerkitoBio/purell"
 	"github.com/google/uuid"
 )
 
 type link struct {
-	url   string
-	id    string
-	title string
+	url string
+	id  string
 }
 
 func GetTitle(url string) string {
@@ -43,7 +42,7 @@ func GetTitle(url string) string {
 		return url
 	}
 
-	doc, err := goquery.NewDocumentFromReader(resp.Body)
+	doc, err := gq.NewDocumentFromReader(resp.Body)
 
 	if err != nil {
 		log.Fatal(err)
@@ -72,8 +71,8 @@ func CreateLink(url, title, dialect string) string {
 
 func main() {
 
-	var linkFormat string
-	flag.StringVar(&linkFormat, "format", "markdown", "Specify link format")
+	linkFormat := flag.String("format", "markdown", "Specify link format")
+	normalizeURL := flag.Bool("normalize", true, "Normalize URLs")
 	flag.Parse()
 
 	urlRe := regexp.MustCompile(`(?i)\b(?:[a-z][\w.+-]+:(?:/{1,3}|[?+]?[a-z0-9%]))(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s\x60!()\[\]{};:'".,<>?«»“”‘’])`)
@@ -100,8 +99,17 @@ func main() {
 
 		for _, link := range matchesEnriched {
 			title := GetTitle(link.url)
-			normalized_url, _ := purell.NormalizeURLString(link.url, purell.FlagsUsuallySafeGreedy|purell.FlagRemoveDuplicateSlashes|purell.FlagRemoveFragment)
-			line = strings.Replace(line, link.url, CreateLink(normalized_url, title, linkFormat), -1)
+
+			url := link.url
+
+			if *normalizeURL {
+				url, _ = pu.NormalizeURLString(
+					link.url,
+					pu.FlagsUsuallySafeGreedy|pu.FlagRemoveDuplicateSlashes|pu.FlagRemoveFragment,
+				)
+			}
+
+			line = strings.ReplaceAll(line, link.url, CreateLink(url, title, *linkFormat))
 		}
 
 		fmt.Println(line)
