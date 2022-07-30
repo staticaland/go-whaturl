@@ -21,7 +21,7 @@ echo "I like https://github.com" | whaturl
 I like [GitHub: Where the world builds software · GitHub](https://github.com)
 #+end_src
 
-Inspired by [[http://brettterpstra.com/2015/02/18/titler-system-service/][Titler by Brett Terpstra]]) for Mac OS and [[https://github.com/rexim/org-cliplink][org-cliplink]]) for Emacs.
+Inspired by [[http://brettterpstra.com/2015/02/18/titler-system-service/][Titler by Brett Terpstra]] for Mac OS and [[https://github.com/rexim/org-cliplink][org-cliplink]] for Emacs.
 
 
 * Usage
