@@ -75,6 +75,7 @@ func main() {
 	normalizeURL := flag.Bool("normalize", true, "Normalize URLs")
 	flag.Parse()
 
+	// OK
 	urlRe := xurls.Strict()
 
 	scanner := bufio.NewScanner(os.Stdin)
