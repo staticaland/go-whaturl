@@ -1,3 +1,4 @@
+---
 name: Vale
 on:
   pull_request:
