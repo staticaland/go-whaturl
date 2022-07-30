@@ -56,6 +56,10 @@ cat urls | whaturl
 
 * Editor integration
 
+** Emacs
+
+I use =reformatter.el= (see [[https://github.com/staticaland/doom-emacs-config/blob/master/modules/editor/reformatter/config.el][my reformatter.el configuration here]]).
+
 
 ** Vim
 
@@ -64,12 +68,7 @@ nnoremap <leader>l :%!whaturl<CR>
 vnoremap <leader>l :!whaturl<CR>
 #+end_example
 
-This is reminiscent of the [[https://blog.sanctum.geek.nz/vim-koans/][Vim Kōan /Master Wq and the Markdown acolyte/]].
-
-
-** Emacs
-
-I use =reformatter.el= (see [[https://github.com/staticaland/doom-emacs-config/blob/master/modules/editor/reformatter/config.el][my reformatter.el configuration here]]).
+This is reminiscent of the [[https://blog.sanctum.geek.nz/vim-koans/][Vim Kōan Master Wq and the Markdown acolyte]].
 
 
 * Installation
