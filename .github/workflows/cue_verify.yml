@@ -21,7 +21,7 @@ jobs:
 
       - name: Regenerate YAML from CUE
         working-directory: .github/workflows
-        run: >
+        run: |
             cue export --out yaml goreleaser.cue > goreleaser.cue
             cue export --out yaml superlinter.cue > superlinter.yml
             cue export --out yaml go.cue > go.yml
