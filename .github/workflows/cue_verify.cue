@@ -23,6 +23,7 @@ jobs: workflow2_job1: {
 			cue export --out yaml superlinter.cue > superlinter.yml
 			cue export --out yaml go.cue > go.yml
 			cue export --out yaml vale.cue > vale.yml
+			cue export --out yaml cue_verify.cue > cue_verify.yml
 
 			"""
 	}, {
