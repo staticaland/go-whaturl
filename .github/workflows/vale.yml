@@ -1,11 +1,9 @@
----
 name: Vale
-on:
+"on":
   pull_request:
     paths:
       - '**.org'
       - '**.md'
-
 jobs:
   vale:
     name: Vale
