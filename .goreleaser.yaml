@@ -45,3 +45,5 @@ changelog:
       - Merge branch
       - '^ci:'
       - '^chore:'
+      - '^refactor:'
+      - 'Brew formula update'
