@@ -39,8 +39,14 @@ func TestCreateHtmlLink(t *testing.T) {
 }
 
 func TestCreateLinkList(t *testing.T) {
-	// got := CreateLinkList("I like https://aftenposten.no and https://sol.no")
-	got := CreateLinkList("I like https://aftenposten.no and https://sol.no")
+
+	pages := []link{}
+
+	pages = append(pages,
+		link{url: "https://aftenposten.no"},
+		link{url: "https://sol.no"})
+
+	got := CreateLinkList(pages)
 
 	want := "- [Forsiden - Aftenposten](https://aftenposten.no)\n- [Sol.no samler de viktigste nyhetene for deg!](https://sol.no)"
 

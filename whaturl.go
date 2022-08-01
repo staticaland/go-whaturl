@@ -69,10 +69,16 @@ func CreateLink(url, title, dialect string) string {
 
 }
 
-func CreateLinkList(text string) string {
+func CreateLinkList(links []link) string {
 
-	want := "- [Forsiden - Aftenposten](https://aftenposten.no)\n- [Sol.no samler de viktigste nyhetene for deg!](https://sol.no)"
-	return want
+	result := []string{}
+
+	for _, link := range links {
+		s := fmt.Sprintf("- %s", CreateLink(link.url, GetTitle(link.url), "markdown"))
+		result = append(result, s)
+	}
+
+	return strings.Join(result, "\n")
 
 }
 
