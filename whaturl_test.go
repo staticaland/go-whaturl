@@ -37,3 +37,15 @@ func TestCreateHtmlLink(t *testing.T) {
 		t.Errorf("got %q want %q", got, want)
 	}
 }
+
+func TestCreateLinkList(t *testing.T) {
+	// got := CreateLinkList("I like https://aftenposten.no and https://sol.no")
+	got := CreateLinkList("I like https://aftenposten.no and https://sol.no")
+
+	want := "- [Forsiden - Aftenposten](https://aftenposten.no)\n- [Sol.no samler de viktigste nyhetene for deg!](https://sol.no)"
+
+	if got != want {
+		t.Errorf("got %q want %q", got, want)
+	}
+
+}

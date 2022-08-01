@@ -69,13 +69,19 @@ func CreateLink(url, title, dialect string) string {
 
 }
 
+func CreateLinkList(text string) string {
+
+	want := "- [Forsiden - Aftenposten](https://aftenposten.no)\n- [Sol.no samler de viktigste nyhetene for deg!](https://sol.no)"
+	return want
+
+}
+
 func main() {
 
 	linkFormat := flag.String("format", "markdown", "Specify link format")
 	normalizeURL := flag.Bool("normalize", true, "Normalize URLs")
 	flag.Parse()
 
-	// OK
 	urlRe := xurls.Strict()
 
 	scanner := bufio.NewScanner(os.Stdin)
