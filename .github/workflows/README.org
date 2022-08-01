@@ -20,6 +20,9 @@ the CUE files.
 
 * Export to YAML
 
+This is the most primitive way to export CUE files to JSON. A more efficient way
+is to use [[https://cuelang.org/docs/usecases/scripting/][the CUE scripting layer]].
+
 #+begin_src sh
 cue export --out yaml goreleaser.cue > goreleaser.cue
 cue export --out yaml superlinter.cue > superlinter.yml
