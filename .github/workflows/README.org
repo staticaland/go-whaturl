@@ -1,0 +1,17 @@
+#+title: README
+
+* About CUE
+
+I am trying out [[https://cuelang.org/][CUE]].
+
+One small caveat is that Dependabot will not be able to create pull requests for
+the CUE files.
+
+* Export to YAML
+
+#+begin_src sh
+cue export --out yaml goreleaser.cue > goreleaser.cue
+cue export --out yaml superlinter.cue > superlinter.yml
+cue export --out yaml go.cue > go.yml
+cue export --out yaml vale.cue > vale.yml
+#+end_src
