@@ -10,17 +10,14 @@ import (
 	"strings"
 
 	gq "github.com/PuerkitoBio/goquery"
-	pu "github.com/PuerkitoBio/purell"
-	"github.com/google/uuid"
 	"mvdan.cc/xurls/v2"
 )
 
-type link struct {
-	url string
-	id  string
-}
-
 func GetTitle(url string) string {
+
+	if !strings.HasPrefix(url, "http://") && !strings.HasPrefix(url, "https://") {
+			url = "https://" + url
+	}
 
 	client := &http.Client{}
 
@@ -69,26 +66,20 @@ func CreateLink(url, title, dialect string) string {
 
 }
 
-func CreateLinkList(links []link) string {
-
-	result := []string{}
-
-	for _, link := range links {
-		s := fmt.Sprintf("- %s", CreateLink(link.url, GetTitle(link.url), "markdown"))
-		result = append(result, s)
-	}
-
-	return strings.Join(result, "\n")
-
-}
-
 func main() {
 
 	linkFormat := flag.String("format", "markdown", "Specify link format")
-	normalizeURL := flag.Bool("normalize", true, "Normalize URLs")
+	shouldCreateLinkList := flag.Bool("list", false, "Create list of links")
+	relaxed := flag.Bool("relaxed", false, "Process URLs without a schema")
 	flag.Parse()
 
-	urlRe := xurls.Strict()
+	urlReFunc := xurls.Strict
+
+	if *relaxed {
+		urlReFunc = xurls.Relaxed
+	}
+
+	urlRe := urlReFunc()
 
 	scanner := bufio.NewScanner(os.Stdin)
 
@@ -96,36 +87,26 @@ func main() {
 
 		line := scanner.Text()
 
-		matches := urlRe.FindAllString(line, -1)
+		if *shouldCreateLinkList {
 
-		matchesEnriched := make([]link, 0, len(matches))
+			urls := urlRe.FindAllString(line, -1)
 
-		for _, url := range matches {
+			for _, url := range urls {
 
-			id := uuid.New().String()
+				fmt.Println(" - " + CreateLink(url, GetTitle(url), *linkFormat))
 
-			l := link{url: url, id: id}
-
-			matchesEnriched = append(matchesEnriched, l)
-
-		}
-
-		for _, link := range matchesEnriched {
-			title := GetTitle(link.url)
-
-			url := link.url
-
-			if *normalizeURL {
-				url, _ = pu.NormalizeURLString(
-					link.url,
-					pu.FlagsUsuallySafeGreedy|pu.FlagRemoveDuplicateSlashes|pu.FlagRemoveFragment,
-				)
 			}
 
-			line = strings.ReplaceAll(line, link.url, CreateLink(url, title, *linkFormat))
+		} else {
+
+			line = urlRe.ReplaceAllStringFunc(line, func(s string) string {
+				return CreateLink(s, GetTitle(s), *linkFormat)
+			})
+
+			fmt.Println(line)
+
 		}
 
-		fmt.Println(line)
 	}
 
 }
