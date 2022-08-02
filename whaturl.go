@@ -92,9 +92,7 @@ func main() {
 			urls := urlRe.FindAllString(line, -1)
 
 			for _, url := range urls {
-
 				fmt.Println(" - " + CreateLink(url, GetTitle(url), *linkFormat))
-
 			}
 
 		} else {
