@@ -37,21 +37,3 @@ func TestCreateHtmlLink(t *testing.T) {
 		t.Errorf("got %q want %q", got, want)
 	}
 }
-
-func TestCreateLinkList(t *testing.T) {
-
-	pages := []link{}
-
-	pages = append(pages,
-		link{url: "https://aftenposten.no"},
-		link{url: "https://sol.no"})
-
-	got := CreateLinkList(pages)
-
-	want := "- [Forsiden - Aftenposten](https://aftenposten.no)\n- [Sol.no samler de viktigste nyhetene for deg!](https://sol.no)"
-
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
-
-}
