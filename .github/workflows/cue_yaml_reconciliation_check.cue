@@ -5,7 +5,8 @@ on: [
 
 name: "CUE regenerate"
 
-jobs: workflow2_job1: {
+jobs: cue_reconciliation: {
+	name: "Verify CUE matches YAML configuration"
 	"runs-on": "ubuntu-latest"
 
 	steps: [{
