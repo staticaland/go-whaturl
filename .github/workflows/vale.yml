@@ -4,6 +4,10 @@ name: Vale
     paths:
       - '**.org'
       - '**.md'
+  push:
+    paths:
+      - '**.org'
+      - '**.md'
 jobs:
   vale:
     name: Vale

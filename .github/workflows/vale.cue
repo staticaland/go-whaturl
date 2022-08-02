@@ -3,6 +3,10 @@ on: pull_request: paths: [
 	"**.org",
 	"**.md",
 ]
+on: push: paths: [
+	"**.org",
+	"**.md",
+]
 
 jobs: vale: {
 	name:      "Vale"
