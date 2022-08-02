@@ -3,7 +3,7 @@ on: [
 	"pull_request",
 ]
 
-name: "CUE regenerate"
+name: "CUE and YAML reconciliation check"
 
 jobs: cue_reconciliation: {
 	name: "Verify CUE matches YAML configuration"
