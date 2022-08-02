@@ -2,7 +2,7 @@ package workflows
 
 #Slack: {
 	uses: string | *"slackapi/slack-github-action@v1.21.0"
-	env: SLACK_BOT_TOKEN: string *"${{ secrets.SLACK_BOT_TOKEN }}"
+	env: SLACK_BOT_TOKEN: string | *"${{ secrets.SLACK_BOT_TOKEN }}"
 	...
 }
 
