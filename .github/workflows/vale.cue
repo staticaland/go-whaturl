@@ -13,8 +13,18 @@ jobs: vale: {
 	"runs-on": "ubuntu-latest"
 	steps: [{
 		uses: "actions/checkout@v3"
-	}, {
-		uses: "errata-ai/vale-action@reviewdog"
-		env: GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}"
+	},
+	{
+		uses: "errata-ai/vale-action@reviewdog",
+		env: GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}",
+	},
+	{
+		uses: "slackapi/slack-github-action@v1.21.0"
+		with: {
+			"channel-id": "workflows",
+			"slack-message": "Hi there.",
+		}
+		env: SLACK_BOT_TOKEN: "${{ secrets.SLACK_BOT_TOKEN }}"
 	}]
+
 }
