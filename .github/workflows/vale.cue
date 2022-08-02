@@ -1,18 +1,18 @@
+package workflows
+
 #Slack: {
-	uses: "slackapi/slack-github-action@v1.21.0"
-	env: SLACK_BOT_TOKEN: "${{ secrets.SLACK_BOT_TOKEN }}"
+	uses: string | *"slackapi/slack-github-action@v1.21.0"
+	env: SLACK_BOT_TOKEN: string *"${{ secrets.SLACK_BOT_TOKEN }}"
 	...
 }
 
 name: "Vale"
+
 on: pull_request: paths: [
 	"**.org",
 	"**.md",
 ]
-on: push: paths: [
-	"**.org",
-	"**.md",
-]
+on: push: paths: on.pull_request.paths
 
 jobs: vale: {
 	name:      "Vale"
