@@ -132,8 +132,7 @@ go test
 - [[https://github.com/alphapapa/org-protocol-capture-html][alphapapa/org-protocol-capture-html]]
 - [[https://github.com/deathau/markdownload][deathau/markdownload]]
 - [[https://gist.github.com/kepano/90c05f162c37cf730abb8ff027987ca3][kepano/obsidian-web-clipper.js]]
-- [[https://forum.keyboardmaestro.com/t/create-a-markdown-link-url-title-url-for-a-url-in-the-clipboard/8505][Keyboard Maestro - Create a Markdown Link – [URL Title](URL) – for a URL in
-  the Clipboard]]
+- [[https://forum.keyboardmaestro.com/t/create-a-markdown-link-url-title-url-for-a-url-in-the-clipboard/8505][Keyboard Maestro - Create a Markdown Link for a URL in the Clipboard]]
 
 
 * See also
