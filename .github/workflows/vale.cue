@@ -17,18 +17,20 @@ on: push: paths: [
 jobs: vale: {
 	name:      "Vale"
 	"runs-on": "ubuntu-latest"
-	steps: [{
-		uses: "actions/checkout@v3"
-	},
-	{
-		uses: "errata-ai/vale-action@reviewdog",
-		env: GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}",
-	},
-	#Slack & {
-		with: {
-			"channel-id": "workflows",
-			"slack-message": "Vale DocOps workflow ran. Thanks for writing!",
-		}
-	}]
+	steps: [
+		{
+			uses: "actions/checkout@v3"
+		},
+		{
+			uses: "errata-ai/vale-action@reviewdog"
+			env: GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}"
+		},
+		#Slack & {
+			with: {
+				"channel-id":    "workflows"
+				"slack-message": "Vale DocOps workflow ran. Thanks for writing!"
+			}
+		},
+	]
 
 }
