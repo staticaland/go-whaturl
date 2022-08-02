@@ -1,3 +1,9 @@
+#Slack: {
+	uses: "slackapi/slack-github-action@v1.21.0"
+	env: SLACK_BOT_TOKEN: "${{ secrets.SLACK_BOT_TOKEN }}"
+	...
+}
+
 name: "Vale"
 on: pull_request: paths: [
 	"**.org",
@@ -18,13 +24,11 @@ jobs: vale: {
 		uses: "errata-ai/vale-action@reviewdog",
 		env: GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}",
 	},
-	{
-		uses: "slackapi/slack-github-action@v1.21.0"
+	#Slack & {
 		with: {
 			"channel-id": "workflows",
 			"slack-message": "Vale DocOps workflow ran. Thanks for writing!",
 		}
-		env: SLACK_BOT_TOKEN: "${{ secrets.SLACK_BOT_TOKEN }}"
 	}]
 
 }
