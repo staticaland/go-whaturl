@@ -35,8 +35,10 @@ whaturl --help 2>&1
 Usage of whaturl:
   -format string
     	Specify link format (default "markdown")
-  -normalize
-    	Normalize URLs (default true)
+  -list
+    	Create list of links
+  -relaxed
+    	Process URLs without a schema
 #+end_src
 
 If you run the program, it will wait for input from [[https://en.wikipedia.org/wiki/Standard_streams#Standard_input_(stdin)][stdin]].
@@ -88,7 +90,7 @@ brew install whaturl
 #+end_src
 
 If you watch the project (Watch → Custom → Releases) you can easily upgrade to
-the latest version:
+the latest version when notified:
 
 #+begin_src sh
 brew upgrade whaturl
@@ -129,16 +131,21 @@ go test
 - [[https://github.com/sindresorhus/urls-md][sindresorhus/urls-md]]
 - [[https://github.com/alphapapa/org-protocol-capture-html][alphapapa/org-protocol-capture-html]]
 - [[https://github.com/deathau/markdownload][deathau/markdownload]]
+- [[https://gist.github.com/kepano/90c05f162c37cf730abb8ff027987ca3][kepano/obsidian-web-clipper.js]]
+- [[https://forum.keyboardmaestro.com/t/create-a-markdown-link-url-title-url-for-a-url-in-the-clipboard/8505][Keyboard Maestro - Create a Markdown Link – [URL Title](URL) – for a URL in
+  the Clipboard]]
 
 
 * See also
 
 - [[https://benjamincongdon.me/blog/2020/06/27/Vim-Tip-Paste-Markdown-Link-with-Automatic-Title-Fetching/][Vim Tip: Paste Markdown Link with Automatic Title Fetching]]
+- [[https://www.moncefbelyamani.com/automate-pasting-title-and-url-of-frontmost-browser/][Automate Copying and Pasting the Current Page Title and URL with Keyboard
+  Maestro]]
 
 
 * Bookmarklets
 
-Org-mode:
+[[https://orgmode.org][Org Mode]]:
 
 #+begin_src js
 javascript:(
