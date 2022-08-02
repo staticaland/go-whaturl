@@ -39,5 +39,7 @@ called =workflows=. It's one big blob of data. That is to say, all the CUE files
 are combined into one object. In this form, they are not compatible with GitHub
 Actions. This is where [[workflows_tool.cue][workflows_tool.cue]] and [[./workflows.cue][workflows.cue]] come into play.
 Files that end with =_tool.cue= are special in CUE. They define commands that
-you can run with =cue cmd <command_name=. So =workflows_tool.cue= defines a
-command called =genworkflows=. We can run it with =cue cmd genworkflows=.
+you can run with =cue cmd <command_name>=.
+
+So =workflows_tool.cue= defines a command called =genworkflows=. We can run it
+with =cue cmd genworkflows=. It creates the YAML files.
