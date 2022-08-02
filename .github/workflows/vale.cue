@@ -22,7 +22,7 @@ jobs: vale: {
 		uses: "slackapi/slack-github-action@v1.21.0"
 		with: {
 			"channel-id": "workflows",
-			"slack-message": "Hi there.",
+			"slack-message": "Vale DocOps workflow ran. Thanks for writing!",
 		}
 		env: SLACK_BOT_TOKEN: "${{ secrets.SLACK_BOT_TOKEN }}"
 	}]
