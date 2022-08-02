@@ -18,6 +18,8 @@ All of the CUE files here have been created with =cue import=.
 One small caveat is that Dependabot will not be able to create pull requests for
 the CUE files.
 
+I use [[https://melpa.org/#/cue-mode][cue-mode for Emacs]]. It's fun to press =C-c C-c-= to eval the buffer.
+
 * Export to YAML
 
 This is the most primitive way to export CUE files to JSON. A more efficient way
