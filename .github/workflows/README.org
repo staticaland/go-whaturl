@@ -1,6 +1,6 @@
 #+title: README
 
-* About CUE
+* About CUE (Configure, Unify, Execute)
 
 I am trying out [[https://cuelang.org/][CUE]]. At the moment there are no [[https://cuelang.org/docs/tutorials/tour/intro/schema/][schema definitions]]. It would be
 possible to import the [[https://www.schemastore.org/json/][GitHub Workflow JSON schema]] to create one ([[https://youtu.be/Ey3ca0K2h2U?t=1244][video]]). If we
@@ -11,14 +11,14 @@ github jsonschema: <filename>=.
 
 When we have created some schemas and sub-schemas we can use =cue trim= to
 remove boilerplate from the workflows. This is because [[https://cuelang.org/docs/tutorials/tour/intro/constraints/][values defined in a
-constraint do not have to be included in the data]].
+constraint don't have to be included in the data]].
 
 All of the CUE files here have been created with =cue import=.
 
 One small caveat is that Dependabot will not be able to create pull requests for
 the CUE files.
 
-I use [[https://melpa.org/#/cue-mode][cue-mode for Emacs]]. It's fun to press =C-c C-c-= to eval the buffer.
+I use [[https://melpa.org/#/cue-mode][cue-mode for Emacs]]. It's fun to press =C-c C-c-= to evaluate the buffer.
 
 * Export to YAML
 
