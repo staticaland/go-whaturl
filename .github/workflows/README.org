@@ -43,3 +43,13 @@ that you can run with =cue cmd <command_name>=.
 
 So =workflows_tool.cue= defines a command called =genworkflows=. We can run it
 with =cue cmd genworkflows=. It creates the YAML files.
+
+From the [[https://cuelang.org/docs/concepts/packages/#file-organization][docs]]:
+
+#+begin_quote
+Within a module, all .cue files with the same package name are part of the same
+package. A package is evaluated within the context of a certain directory.
+Within this context, only the files belonging to that package in that directory
+and its ancestor directories within the module are combined. We call that an
+instance of a package.
+#+end_quote
