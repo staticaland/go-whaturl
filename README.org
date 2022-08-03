@@ -17,6 +17,9 @@
     <a href="https://github.com/staticaland/go-whaturl/actions/workflows/cue_yaml_reconciliation_check.yml">
         <img alt="CUE" src="https://github.com/staticaland/go-whaturl/actions/workflows/cue_yaml_reconciliation_check.yml/badge.svg" />
     </a>
+    <a href="https://github.com/staticaland/go-whaturl/releases">
+        <img alt="Version"> src="https://img.shields.io/github/v/release/staticaland/go-whaturl" />
+    </a>
 </p>
 #+end_html
 
@@ -144,6 +147,7 @@ go test
 - [[https://github.com/deathau/markdownload][deathau/markdownload]]
 - [[https://gist.github.com/kepano/90c05f162c37cf730abb8ff027987ca3][kepano/obsidian-web-clipper.js]]
 - [[https://forum.keyboardmaestro.com/t/create-a-markdown-link-url-title-url-for-a-url-in-the-clipboard/8505][Keyboard Maestro - Create a Markdown Link for a URL in the Clipboard]]
+- [[https://forum.obsidian.md/t/hyper-optimized-url-grabber-using-keyboard-maestro-on-the-mac/34318][Hyper Optimized URL grabber (Using Keyboard Maestro on the Mac)]]
 
 
 * See also
