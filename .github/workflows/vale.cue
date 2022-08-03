@@ -3,7 +3,6 @@ package workflows
 import "encoding/json"
 
 #Slack: {
-	"channel-id": "workflows"
 	uses:         string | *"slackapi/slack-github-action@v1.21.0"
 	env: SLACK_BOT_TOKEN: string | *"${{ secrets.SLACK_BOT_TOKEN }}"
 	...
@@ -68,6 +67,7 @@ vale: {
 
 			#Slack & {
 				with: {
+					"channel-id": "workflows"
 					payload: json.Marshal(SlackMessage)
 				}
 			},
@@ -82,6 +82,7 @@ vale: {
 			},
 			#Slack & {
 				with: {
+					"channel-id": "workflows"
 					payload: json.Marshal(SlackMessage2)
 				}
 			},
