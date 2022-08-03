@@ -120,6 +120,14 @@ brew untap staticaland/go-whaturl
 
 * Build and run
 
+#+begin_html
+<p>
+    <a href="https://github.com/staticaland/go-whaturl/actions/workflows/go.yml">
+        <img alt="Build" src="https://github.com/staticaland/go-whaturl/actions/workflows/go.yml/badge.svg" />
+    </a>
+</p>
+#+end_html
+
 #+begin_src sh
 go build whaturl.go
 #+end_src
@@ -130,6 +138,14 @@ go run whaturl.go
 
 
 * Test
+
+#+begin_html
+<p>
+    <a href="https://github.com/staticaland/go-whaturl/actions/workflows/go.yml">
+        <img alt="Build" src="https://github.com/staticaland/go-whaturl/actions/workflows/go.yml/badge.svg" />
+    </a>
+</p>
+#+end_html
 
 #+begin_src sh
 go test
