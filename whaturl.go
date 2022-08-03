@@ -13,7 +13,7 @@ import (
 	"mvdan.cc/xurls/v2"
 )
 
-func GetTitle(url string) string {
+func getTitle(url string) string {
 
 	if !strings.HasPrefix(url, "http://") && !strings.HasPrefix(url, "https://") {
 			url = "https://" + url
@@ -51,7 +51,7 @@ func GetTitle(url string) string {
 
 }
 
-func CreateLink(url, title, dialect string) string {
+func createLink(url, title, dialect string) string {
 
 	switch dialect {
 	case "markdown":
@@ -92,13 +92,13 @@ func main() {
 			urls := urlRe.FindAllString(line, -1)
 
 			for _, url := range urls {
-				fmt.Println(" - " + CreateLink(url, GetTitle(url), *linkFormat))
+				fmt.Println(" - " + createLink(url, getTitle(url), *linkFormat))
 			}
 
 		} else {
 
 			line = urlRe.ReplaceAllStringFunc(line, func(s string) string {
-				return CreateLink(s, GetTitle(s), *linkFormat)
+				return createLink(s, getTitle(s), *linkFormat)
 			})
 
 			fmt.Println(line)
