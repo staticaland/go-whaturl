@@ -57,4 +57,4 @@ instance of a package.
 * Functions
 
 Using [[https://pkg.go.dev/cuelang.org/go/pkg/encoding/json#Marshal][the Marshal function]] to create Slack payloads. We could get a hold of the
-Slack schema to verify this struct.
+Slack schema to verify this struct. OK.
