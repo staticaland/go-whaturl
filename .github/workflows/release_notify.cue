@@ -28,6 +28,8 @@ SlackBlockRelease: {
 
 release_notify: {
 
+	name: "Release notification"
+
 	on: release: types: ["published"]
 
 	jobs: notify: {

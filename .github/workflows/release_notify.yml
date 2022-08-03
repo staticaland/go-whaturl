@@ -1,3 +1,4 @@
+name: Release notification
 "on":
   release:
     types:
