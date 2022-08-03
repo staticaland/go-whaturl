@@ -8,7 +8,7 @@ SlackBlockRelease: {
 			"type": "section"
 			"text": {
 				"type": "mrkdwn"
-				"text": "A new version of `whaturl` has been released: `${{ github.event.release.tag_name }}` :tada:"
+				"text": "A new version of `whaturl` has been released: `yo` :tada:"
 			}
 			"accessory": {
 				"type": "button"
@@ -16,7 +16,7 @@ SlackBlockRelease: {
 					"type": "plain_text"
 					"text": "See details"
 				}
-				"url": "${{ github.event.release.html_url }}"
+				"url": "https://github.com/staticaland/go-whaturl/releases"
 			}
 		},
 	]

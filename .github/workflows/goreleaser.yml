@@ -36,4 +36,4 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         with:
           channel-id: workflows
-          payload: '{"blocks":[{"type":"section","text":{"type":"mrkdwn","text":"A new version of `whaturl` has been released: `${{ github.event.release.tag_name }}` :tada:"},"accessory":{"type":"button","text":{"type":"plain_text","text":"See details"},"url":"${{ github.event.release.html_url }}"}}]}'
+          payload: '{"blocks":[{"type":"section","text":{"type":"mrkdwn","text":"A new version of `whaturl` has been released: `yo` :tada:"},"accessory":{"type":"button","text":{"type":"plain_text","text":"See details"},"url":"https://github.com/staticaland/go-whaturl/releases"}}]}'
