@@ -2,13 +2,13 @@ package workflows
 
 import "encoding/json"
 
-#Slack: {
+#SlackAction: {
 	uses:         string | *"slackapi/slack-github-action@v1.21.0"
 	env: SLACK_BOT_TOKEN: string | *"${{ secrets.SLACK_BOT_TOKEN }}"
 	...
 }
 
-#SlackMessage: {
+#SlackPayload: {
 	text: string
 	attachments: [...{
 		pretext: string
@@ -23,7 +23,7 @@ import "encoding/json"
 	...
 }
 
-SlackMessage: #SlackMessage & {
+SlackMessage: #SlackPayload & {
 	"text": "Deployment started (In Progress)"
 	"attachments": [
 		{
@@ -39,7 +39,7 @@ SlackMessage: #SlackMessage & {
 	]
 }
 
-SlackMessage2: #SlackMessage & {
+SlackMessage2: #SlackPayload & {
 	"text": "Deployment finished (Completed)"
 	"attachments": [
 		{
@@ -73,7 +73,7 @@ vale: {
 				uses: "actions/checkout@v3"
 			},
 
-			#Slack & {
+			#SlackAction & {
 				with: {
 					"channel-id": "workflows"
 					payload: json.Marshal(SlackMessage)
@@ -88,7 +88,7 @@ vale: {
 					reporter:      "github-check"
 				}
 			},
-			#Slack & {
+			#SlackAction & {
 				with: {
 					"channel-id": "workflows"
 					payload: json.Marshal(SlackMessage2)
