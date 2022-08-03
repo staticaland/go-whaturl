@@ -15,7 +15,7 @@ import "encoding/json"
 		color: string
 		fields: [{
 			title: string
-			short: true
+			short: bool | *true
 			value: string
 		}]
 		...
