@@ -1,13 +1,23 @@
 * whaturl
 
 #+begin_html
-<p><a href="https://github.com/staticaland/go-whaturl/actions/workflows/go.yml">
-<img alt="Build" src="https://github.com/staticaland/go-whaturl/actions/workflows/go.yml/badge.svg" />
-</a>
-<img alt="Vale" src="https://github.com/staticaland/go-whaturl/actions/workflows/vale.yml/badge.svg" />
-<img alt="Release" src="https://github.com/staticaland/go-whaturl/actions/workflows/goreleaser.yml/badge.svg" />
-<img alt="Lint" src="https://github.com/staticaland/go-whaturl/actions/workflows/superlinter.yml/badge.svg" />
-<img alt="CUE" src="https://github.com/staticaland/go-whaturl/actions/workflows/cue_yaml_reconciliation_check.yml/badge.svg" /></p>
+<p>
+    <a href="https://github.com/staticaland/go-whaturl/actions/workflows/go.yml">
+        <img alt="Build" src="https://github.com/staticaland/go-whaturl/actions/workflows/go.yml/badge.svg" />
+    </a>
+    <a href="https://github.com/staticaland/go-whaturl/actions/workflows/vale.yml">
+        <img alt="Vale" src="https://github.com/staticaland/go-whaturl/actions/workflows/vale.yml/badge.svg" />
+    </a>
+    <a href="https://github.com/staticaland/go-whaturl/actions/workflows/goreleaser.yml">
+        <img alt="Release" src="https://github.com/staticaland/go-whaturl/actions/workflows/goreleaser.yml/badge.svg" />
+    </a>
+    <a href="https://github.com/staticaland/go-whaturl/actions/workflows/superlinter.yml">
+        <img alt="Lint" src="https://github.com/staticaland/go-whaturl/actions/workflows/superlinter.yml/badge.svg" />
+    </a>
+    <a href="https://github.com/staticaland/go-whaturl/actions/workflows/cue_yaml_reconciliation_check.yml">
+        <img alt="CUE" src="https://github.com/staticaland/go-whaturl/actions/workflows/cue_yaml_reconciliation_check.yml/badge.svg" />
+    </a>
+</p>
 #+end_html
 
 
