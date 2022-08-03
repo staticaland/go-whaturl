@@ -15,11 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: slackapi/slack-github-action@v1.21.0
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         with:
           channel-id: workflows
           payload: '{"text":"Deployment started (In Progress)","attachments":[{"pretext":"Deployment started","color":"dbab09","fields":[{"title":"Status","short":true,"value":"In Progress","run_link":"https://${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}]}]}'
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
       - uses: errata-ai/vale-action@reviewdog
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -27,9 +27,9 @@ jobs:
           fail_on_error: true
           reporter: github-check
       - uses: slackapi/slack-github-action@v1.21.0
-        if: ${{ failure() }}
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        if: ${{ failure() }}
         with:
           channel-id: workflows
           payload: '{"text":"Vale deployment failure","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"*Vale* deployment :warning: failure :warning:"}},{"type":"divider"},{"type":"section","text":{"type":"mrkdwn","text":"Vale DocOps failed deployment during. Write better! The best way to fix this particular issue is \u003chttps://github.com/${{github.repository}}/actions/runs/${{github.run_id}}|viewing the CI server logs\u003e to learn why and fix the issue."}}]}'

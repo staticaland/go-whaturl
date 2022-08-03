@@ -17,4 +17,9 @@ workflows: [
 		filename: "vale.yml"
 		workflow: vale
 	},
+	{
+		filename: "goreleaser.yml"
+		workflow: goreleaser
+	},
+
 ]
