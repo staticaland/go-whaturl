@@ -4,8 +4,6 @@ import (
 	"encoding/json"
 )
 
-name: "Published release"
-
 SlackBlockRelease: {
 	"blocks": [
 		{
@@ -33,6 +31,7 @@ release_notify: {
 	on: release: types: ["published"]
 
 	jobs: notify: {
+		name: "Perform Slack notification"
 		"runs-on": "ubuntu-latest"
 		steps: [
 			#SlackAction & {

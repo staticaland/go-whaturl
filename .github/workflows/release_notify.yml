@@ -5,6 +5,7 @@ name: Release notification
       - published
 jobs:
   notify:
+    name: Perform Slack notification
     runs-on: ubuntu-latest
     steps:
       - uses: slackapi/slack-github-action@v1.21.0
