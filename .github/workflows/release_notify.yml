@@ -1,0 +1,14 @@
+"on":
+  release:
+    types:
+      - published
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: slackapi/slack-github-action@v1.21.0
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        with:
+          channel-id: workflows
+          payload: '{"blocks":[{"type":"section","text":{"type":"mrkdwn","text":"A new version of `whaturl` has been released: `${{ github.event.release.tag_name }}` :tada:"},"accessory":{"type":"button","text":{"type":"plain_text","text":"See details"},"url":"${{ github.event.release.html_url }}"}}]}'
