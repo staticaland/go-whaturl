@@ -10,6 +10,16 @@ import "encoding/json"
 
 #SlackMessage: {
 	text: string
+	attachments: [...{
+		pretext: string
+		color: string
+		fields: [{
+			title: string
+			short: true
+			value: string
+		}]
+		...
+	}]
 	...
 }
 
@@ -22,7 +32,6 @@ SlackMessage: #SlackMessage & {
 			"fields": [
 				{
 					"title": "Status"
-					"short": true
 					"value": "In Progress"
 				},
 			]
@@ -30,7 +39,7 @@ SlackMessage: #SlackMessage & {
 	]
 }
 
-SlackMessage2: {
+SlackMessage2: #SlackMessage & {
 	"text": "Deployment finished (Completed)"
 	"attachments": [
 		{
@@ -39,7 +48,6 @@ SlackMessage2: {
 			"fields": [
 				{
 					"title": "Status"
-					"short": true
 					"value": "Completed"
 				},
 			]
