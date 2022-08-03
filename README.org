@@ -18,7 +18,7 @@
         <img alt="CUE" src="https://github.com/staticaland/go-whaturl/actions/workflows/cue_yaml_reconciliation_check.yml/badge.svg" />
     </a>
     <a href="https://github.com/staticaland/go-whaturl/releases">
-        <img alt="Version"> src="https://img.shields.io/github/v/release/staticaland/go-whaturl" />
+        <img alt="Version" src="https://img.shields.io/github/v/release/staticaland/go-whaturl" />
     </a>
 </p>
 #+end_html
