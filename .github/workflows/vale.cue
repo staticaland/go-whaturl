@@ -26,7 +26,10 @@ vale: {
 			{
 				uses: "errata-ai/vale-action@reviewdog"
 				env: GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}"
-				with: fail_on_error: true
+				with: {
+					fail_on_error: true
+					reporter:      "github-check"
+				}
 			},
 			#Slack & {
 				with: {
