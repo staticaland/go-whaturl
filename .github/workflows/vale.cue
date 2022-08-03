@@ -17,6 +17,7 @@ import "encoding/json"
 			title: string
 			short: bool | *true
 			value: string
+			"run_link": string | *"https://${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 		}]
 		...
 	}]
@@ -68,7 +69,6 @@ vale: {
 	jobs: vale: {
 		name:      "Vale"
 		"runs-on": "ubuntu-latest"
-		"continue-on-error": true
 		steps: [
 			{
 				uses: "actions/checkout@v3"
@@ -90,6 +90,7 @@ vale: {
 				}
 			},
 			#SlackAction & {
+				if: "${{ failure() }}"
 				with: {
 					"channel-id": "workflows"
 					payload: json.Marshal(SlackMsgCompleteDeployment)
