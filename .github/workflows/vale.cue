@@ -23,7 +23,7 @@ import "encoding/json"
 	...
 }
 
-SlackMessage: #SlackPayload & {
+SlackMsgBeginDeployment: #SlackPayload & {
 	"text": "Deployment started (In Progress)"
 	"attachments": [
 		{
@@ -39,7 +39,7 @@ SlackMessage: #SlackPayload & {
 	]
 }
 
-SlackMessage2: #SlackPayload & {
+SlackMsgCompleteDeployment: #SlackPayload & {
 	"text": "Deployment finished (Completed)"
 	"attachments": [
 		{
@@ -76,7 +76,7 @@ vale: {
 			#SlackAction & {
 				with: {
 					"channel-id": "workflows"
-					payload: json.Marshal(SlackMessage)
+					payload: json.Marshal(SlackMsgBeginDeployment)
 				}
 			},
 
@@ -91,7 +91,7 @@ vale: {
 			#SlackAction & {
 				with: {
 					"channel-id": "workflows"
-					payload: json.Marshal(SlackMessage2)
+					payload: json.Marshal(SlackMsgCompleteDeployment)
 				}
 			},
 		]
