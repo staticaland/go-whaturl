@@ -15,7 +15,7 @@ constraint don't have to be included in the data]].
 
 All of the CUE files here have been created with =cue import=.
 
-One small caveat is that Dependabot will not be able to create pull requests for
+One small caveat is that Dependabot won't be able to create pull requests for
 the CUE files.
 
 I use [[https://melpa.org/#/cue-mode][cue-mode for Emacs]]. It's fun to press =C-c C-c-= to evaluate the buffer.
@@ -34,9 +34,9 @@ cue export --out yaml vale.cue > vale.yml
 
 #+RESULTS:
 
-As of writing, all of the CUE files in this directory is part of a package
-called =workflows=. It's one big blob of data. That is to say, all the CUE files
-are combined into one object. In this form, they are not compatible with GitHub
+As of writing, all the CUE files in this directory is part of a package called
+=workflows=. It's one big blob of data. That's to say, all the CUE files are
+combined into one object. In this form, they're not compatible with GitHub
 Actions. This is where [[workflows_tool.cue][workflows_tool.cue]] and [[./workflows.cue][workflows.cue]] come into play.
 Files that end with =_tool.cue= are special in CUE ([[https://youtu.be/Ey3ca0K2h2U?t=2223][video]]). They define commands
 that you can run with =cue cmd <command_name>=.

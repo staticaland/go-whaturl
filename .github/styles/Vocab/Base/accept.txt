@@ -5,3 +5,5 @@ Titler
 Terpstra
 Bookmarklets
 actionlint
+Dependabot
+Config Generator
