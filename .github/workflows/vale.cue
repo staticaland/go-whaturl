@@ -68,6 +68,7 @@ vale: {
 	jobs: vale: {
 		name:      "Vale"
 		"runs-on": "ubuntu-latest"
+		"continue-on-error": true
 		steps: [
 			{
 				uses: "actions/checkout@v3"
