@@ -32,4 +32,4 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         with:
           channel-id: workflows
-          payload: '{"text":"Deployment finished (Completed)","attachments":[{"pretext":"Deployment finished","color":"28a745","fields":[{"title":"Status","short":true,"value":"Completed","run_link":"https://${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}]}]}'
+          payload: '{"text":"Vale deployment failure","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"*Vale* deployment :warning: failure :warning:"}},{"type":"divider"},{"type":"section","text":{"type":"mrkdwn","text":"Vale DocOps failed deployment during. Write better! The best way to fix this particular issue is \u003chttps://github.com/${{github.repository}}/actions/runs/${{github.run_id}}|viewing the CI server logs\u003e to learn why and fix the issue."}}]}'

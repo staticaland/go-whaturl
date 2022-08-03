@@ -3,20 +3,43 @@ package workflows
 import "encoding/json"
 
 #SlackAction: {
-	uses:         string | *"slackapi/slack-github-action@v1.21.0"
+	uses: string | *"slackapi/slack-github-action@v1.21.0"
 	env: SLACK_BOT_TOKEN: string | *"${{ secrets.SLACK_BOT_TOKEN }}"
 	...
+}
+
+SlackBlocks: {
+	"text": "Vale deployment failure"
+	"blocks": [
+		{
+			"type": "section"
+			"text": {
+				"type": "mrkdwn"
+				"text": "*Vale* deployment :warning: failure :warning:"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section"
+			"text": {
+				"type": "mrkdwn"
+				"text": "Vale DocOps failed deployment during. Write better! The best way to fix this particular issue is <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}|viewing the CI server logs> to learn why and fix the issue."
+			}
+		},
+	]
 }
 
 #SlackPayload: {
 	text: string
 	attachments: [...{
 		pretext: string
-		color: string
+		color:   string
 		fields: [{
-			title: string
-			short: bool | *true
-			value: string
+			title:      string
+			short:      bool | *true
+			value:      string
 			"run_link": string | *"https://${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 		}]
 		...
@@ -77,7 +100,7 @@ vale: {
 			#SlackAction & {
 				with: {
 					"channel-id": "workflows"
-					payload: json.Marshal(SlackMsgBeginDeployment)
+					payload:      json.Marshal(SlackMsgBeginDeployment)
 				}
 			},
 
@@ -93,7 +116,7 @@ vale: {
 				if: "${{ failure() }}"
 				with: {
 					"channel-id": "workflows"
-					payload: json.Marshal(SlackMsgCompleteDeployment)
+					payload:      json.Marshal(SlackBlocks)
 				}
 			},
 		]
