@@ -28,7 +28,7 @@ release_notify: {
 
 	name: "Release notification"
 
-	on: release: types: ["published"]
+	on: release:
 
 	jobs: notify: {
 		name: "Perform Slack notification"
