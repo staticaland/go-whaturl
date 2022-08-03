@@ -53,3 +53,8 @@ Within this context, only the files belonging to that package in that directory
 and its ancestor directories within the module are combined. We call that an
 instance of a package.
 #+end_quote
+
+* Functions
+
+Using [[https://pkg.go.dev/cuelang.org/go/pkg/encoding/json#Marshal][the Marshal function]] to create Slack payloads. We could get a hold of the
+Slack schema to verify this struct.
