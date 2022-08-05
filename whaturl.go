@@ -91,8 +91,18 @@ func main() {
 
 			urls := urlRe.FindAllString(line, -1)
 
-			for _, url := range urls {
-				fmt.Println(" - " + createLink(url, getTitle(url), *linkFormat))
+			getTitles := func(linksCh chan<- string) {
+				defer close(linksCh)
+				for _, url := range urls {
+					linksCh <- fmt.Sprintf(" - " + createLink(url, getTitle(url), *linkFormat))
+				}
+			}
+
+			linksCh := make(chan string)
+			go getTitles(linksCh)
+
+			for link := range linksCh {
+				fmt.Println(link)
 			}
 
 		} else {
