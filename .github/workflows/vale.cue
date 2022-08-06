@@ -3,7 +3,7 @@ package workflows
 import "encoding/json"
 
 #SlackAction: {
-	uses: string | *"slackapi/slack-github-action@v1.21.0"
+	uses: string | *"slackapi/slack-github-action@936158bbe252e9a6062e793ea4609642c966e302"
 	env: SLACK_BOT_TOKEN: string | *"${{ secrets.SLACK_BOT_TOKEN }}"
 	with: {
 		"channel-id": "workflows"
