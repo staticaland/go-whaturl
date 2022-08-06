@@ -21,5 +21,9 @@ workflows: [
 		filename: "goreleaser.yml"
 		workflow: goreleaser
 	},
+	{
+		filename: "codeql-analysis.yml"
+		workflow: codeql
+	},
 
 ]

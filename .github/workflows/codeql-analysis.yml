@@ -1,44 +1,34 @@
-# https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning
-name: CodeQL
-
-on:
+"on":
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
-  workflow_dispatch:
-
+    branches:
+      - main
+  workflow_dispatch: null
 permissions:
   contents: read
-
 jobs:
   analyze:
     permissions:
-      actions: read  # for github/codeql-action/init to get workflow details
-      contents: read  # for actions/checkout to fetch code
-      security-events: write  # for github/codeql-action/autobuild to send a status report
+      actions: read
+      contents: read
+      security-events: write
     name: Analyze
     runs-on: ubuntu-latest
-
     strategy:
       fail-fast: false
       matrix:
-        language: ['go']
-
+        language:
+          - go
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@629c2de402a417ea7690ca6ce3f33229e27606a5 # v2
-      with:
-        fetch-depth: 0
-
-    # Initializes the CodeQL tools for scanning.
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@2ca79b6fa8d3ec278944088b4aa5f46912db5d63
-      with:
-        languages: ${{ matrix.language }}
-
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@2ca79b6fa8d3ec278944088b4aa5f46912db5d63
-
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@2ca79b6fa8d3ec278944088b4aa5f46912db5d63
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@2ca79b6fa8d3ec278944088b4aa5f46912db5d63
+        with:
+          languages: ${{ matrix.language }}
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@2ca79b6fa8d3ec278944088b4aa5f46912db5d63
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@2ca79b6fa8d3ec278944088b4aa5f46912db5d63

@@ -14,6 +14,11 @@ command: genworkflows: {
 		}
 	}
 
+}
+
+
+command: toolversions: {
+
 	file.Create & {
 		filename: "../../.tool-versions"
 		contents: "go " + _go_version

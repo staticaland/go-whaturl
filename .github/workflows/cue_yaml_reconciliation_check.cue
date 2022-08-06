@@ -23,7 +23,7 @@ cue_yaml_reconciliation_check: {
 			{
 				name:                "Regenerate YAML from CUE"
 				"working-directory": ".github/workflows"
-				run:                 "cue cmd genworkflows"
+				run:                 "rm *.yml && cue cmd genworkflows && cue cmd toolversions"
 			},
 			{
 				name: "Check commit is clean"
