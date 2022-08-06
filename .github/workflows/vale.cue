@@ -97,10 +97,7 @@ vale: {
 		name:      "Vale"
 		"runs-on": "ubuntu-latest"
 		steps: [
-			{
-				uses: "actions/checkout@v3"
-			},
-
+			#Checkout,
 			#SlackAction & {
 				with: {
 					"channel-id": "workflows"
