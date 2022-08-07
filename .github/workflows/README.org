@@ -63,3 +63,13 @@ https://github.com/pulumi/pulumi-yaml/tree/main/examples/cue-eks ... .
 
 - [[https://github.com/ossf/scorecard/blob/main/docs/checks.md#dependency-update-tool][ossf/scorecard: Dependency-Update-Tool]]
 - [[https://github.com/ossf/scorecard/blob/main/docs/checks.md#pinned-dependencies][ossf/scorecard: Pinned-Dependencies]]
+
+CUE can be used for policy as code. Pinned dependencies are ensured with the
+following CUE code:
+
+#+begin_src cue
+_#step: {
+	uses?: =~"^[^@]+@[a-f0-9]{40}" // Must pin with SHA1
+	...
+}
+#+end_src
