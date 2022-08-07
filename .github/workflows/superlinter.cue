@@ -14,7 +14,7 @@ superlinter: {
 		"runs-on": "ubuntu-latest"
 
 		steps: [
-			#Checkout & {
+			_#checkout & {
 				with: "fetch-depth": 0
 			},
 			{

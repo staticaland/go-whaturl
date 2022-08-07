@@ -14,7 +14,7 @@ cue_yaml_reconciliation_check: {
 		"runs-on": "ubuntu-latest"
 
 		steps: [
-			#Checkout,
+			_#checkout,
 			{
 				name: "Setup CUE environment"
 				uses: "cue-lang/setup-cue@v1.0.0-alpha.2"
