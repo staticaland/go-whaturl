@@ -12,7 +12,23 @@ _#stepSlack: _#step & {
 	...
 }
 
-SlackBlocks: {
+_#slackPayload: {
+	text: string
+	attachments: [...{
+		pretext: string
+		color:   string
+		fields: [{
+			title:      string
+			short:      bool | *true
+			value:      string
+			"run_link": string | *"https://${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+		}]
+		...
+	}]
+	...
+}
+
+_slackBlocks: {
 	"text": "Vale deployment failure"
 	"blocks": [
 		{
@@ -35,23 +51,8 @@ SlackBlocks: {
 	]
 }
 
-#SlackPayload: {
-	text: string
-	attachments: [...{
-		pretext: string
-		color:   string
-		fields: [{
-			title:      string
-			short:      bool | *true
-			value:      string
-			"run_link": string | *"https://${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-		}]
-		...
-	}]
-	...
-}
 
-SlackMsgBeginDeployment: #SlackPayload & {
+_slackMsgBeginDeployment: _#slackPayload & {
 	"text": "Deployment started (In Progress)"
 	"attachments": [
 		{
@@ -67,7 +68,7 @@ SlackMsgBeginDeployment: #SlackPayload & {
 	]
 }
 
-SlackMsgCompleteDeployment: #SlackPayload & {
+_slackMsgCompleteDeployment: _#slackPayload & {
 	"text": "Deployment finished (Completed)"
 	"attachments": [
 		{
@@ -101,7 +102,7 @@ vale: {
 			_#stepSlack & {
 				with: {
 					"channel-id": "workflows"
-					payload:      json.Marshal(SlackMsgBeginDeployment)
+					payload:      json.Marshal(_slackMsgBeginDeployment)
 				}
 			},
 			_#step & {
@@ -116,7 +117,7 @@ vale: {
 				if: "${{ failure() }}"
 				with: {
 					"channel-id": "workflows"
-					payload:      json.Marshal(SlackBlocks)
+					payload:      json.Marshal(_slackBlocks)
 				}
 			},
 		]
