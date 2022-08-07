@@ -19,7 +19,7 @@ superlinter: {
 			},
 			_#step & {
 				name: "Lint Code Base"
-				uses: "github/super-linter/slim@2d64ac1c067c34beaf7d24cc12733cd46236f76e"
+				uses: "github/super-linter/slim@01d3218744765b55c3b5ffbb27e50961e50c33c5"
 				env: {
 					VALIDATE_ALL_CODEBASE: "${{ github.event_name == 'workflow_dispatch' }}"
 					DEFAULT_BRANCH:        "main"
