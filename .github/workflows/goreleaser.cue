@@ -2,7 +2,7 @@ package workflows
 
 import "encoding/json"
 
-SlackBlockRelease: {
+_slackBlockRelease: {
 	"blocks": [
 		{
 			"type": "section"
@@ -63,7 +63,7 @@ goreleaser: {
 			steps: [
 				_#stepSlack & {
 					with: {
-						payload: json.Marshal(SlackBlockRelease)
+						payload: json.Marshal(_slackBlockRelease)
 					}
 				},
 			]
