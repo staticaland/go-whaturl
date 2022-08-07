@@ -29,15 +29,17 @@ codeql: {
 
 		steps: [
 			_#checkout,
-			{
+			_#step & {
 				// Initializes the CodeQL tools for scanning.
 				name: "Initialize CodeQL"
 				uses: "github/codeql-action/init@2ca79b6fa8d3ec278944088b4aa5f46912db5d63"
 				with: languages: "${{ matrix.language }}"
-			}, {
+			},
+			_#step & {
 				name: "Autobuild"
 				uses: "github/codeql-action/autobuild@2ca79b6fa8d3ec278944088b4aa5f46912db5d63"
-			}, {
+			},
+			_#step & {
 				name: "Perform CodeQL Analysis"
 				uses: "github/codeql-action/analyze@2ca79b6fa8d3ec278944088b4aa5f46912db5d63"
 			}]
