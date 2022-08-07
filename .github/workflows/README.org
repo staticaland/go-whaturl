@@ -1,5 +1,3 @@
-#+title: README
-
 * About CUE (Configure, Unify, Execute)
 
 I am trying out [[https://cuelang.org/][CUE]]. At the moment there are no [[https://cuelang.org/docs/tutorials/tour/intro/schema/][schema definitions]]. It would be
@@ -60,3 +58,8 @@ Using [[https://pkg.go.dev/cuelang.org/go/pkg/encoding/json#Marshal][the Marshal
 Slack schema to verify this struct. OK.
 
 https://github.com/pulumi/pulumi-yaml/tree/main/examples/cue-eks ... .
+
+* Scorecards
+
+- [[https://github.com/ossf/scorecard/blob/main/docs/checks.md#dependency-update-tool][ossf/scorecard: Dependency-Update-Tool]]
+- [[https://github.com/ossf/scorecard/blob/main/docs/checks.md#pinned-dependencies][ossf/scorecard: Pinned-Dependencies]]
