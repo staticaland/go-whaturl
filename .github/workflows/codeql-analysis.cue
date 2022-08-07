@@ -1,9 +1,9 @@
 package workflows
 
 // https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning
-name: "CodeQL"
-
 codeql: {
+
+	name: "CodeQL"
 
 	on: {
 		push: branches: ["main"]
