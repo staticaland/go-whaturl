@@ -21,7 +21,7 @@ jobs:
         with:
           channel-id: workflows
           payload: '{"text":"Deployment started (In Progress)","attachments":[{"pretext":"Deployment started","color":"dbab09","fields":[{"title":"Status","short":true,"value":"In Progress","run_link":"https://${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}]}]}'
-      - uses: errata-ai/vale-action@reviewdog
+      - uses: errata-ai/vale-action@c4213d4de3d5f718b8497bd86161531c78992084
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:

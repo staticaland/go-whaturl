@@ -14,18 +14,18 @@ cue_yaml_reconciliation_check: {
 		"runs-on": "ubuntu-latest"
 
 		steps: [
-			_#checkout,
-			{
+			_#stepCheckout,
+			_#step & {
 				name: "Setup CUE environment"
-				uses: "cue-lang/setup-cue@v1.0.0-alpha.2"
+				uses: "cue-lang/setup-cue@143c2fe537047bf8c7ead6a30784ad1802e9d991"
 				with: version: "latest"
 			},
-			{
+			_#step & {
 				name:                "Regenerate YAML from CUE"
 				"working-directory": ".github/workflows"
 				run:                 "rm *.yml && cue cmd genworkflows && cue cmd toolversions"
 			},
-			{
+			_#step & {
 				name: "Check commit is clean"
 				run:  "test -z \"$(git status --porcelain)\" || (git status; git diff; false)"
 			}]

@@ -37,15 +37,15 @@ goreleaser: {
 		goreleaser: {
 			"runs-on": "ubuntu-latest"
 			steps: [
-				_#checkout & {
+				_#stepCheckout & {
 					with: "fetch-depth": 0
 				},
-				{
+				_#step & {
 					name: "Fetch all tags"
 					run:  "git fetch --force --tags"
 				},
-				_#setupGo,
-				{
+				_#stepSetupGo,
+				_#step & {
 					name: "Run GoReleaser"
 					uses: "goreleaser/goreleaser-action@68acf3b1adf004ac9c2f0a4259e85c5f66e99bef"
 					with: {
@@ -61,7 +61,7 @@ goreleaser: {
 			name:      "Perform Slack notification"
 			"runs-on": "ubuntu-latest"
 			steps: [
-				#SlackAction & {
+				_#stepSlack & {
 					with: {
 						payload: json.Marshal(SlackBlockRelease)
 					}

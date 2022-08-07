@@ -28,7 +28,7 @@ codeql: {
 		}
 
 		steps: [
-			_#checkout,
+			_#stepCheckout,
 			_#step & {
 				// Initializes the CodeQL tools for scanning.
 				name: "Initialize CodeQL"

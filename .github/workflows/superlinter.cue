@@ -14,12 +14,12 @@ superlinter: {
 		"runs-on": "ubuntu-latest"
 
 		steps: [
-			_#checkout & {
+			_#stepCheckout & {
 				with: "fetch-depth": 0
 			},
-			{
+			_#step & {
 				name: "Lint Code Base"
-				uses: "github/super-linter/slim@v4"
+				uses: "github/super-linter/slim@2d64ac1c067c34beaf7d24cc12733cd46236f76e"
 				env: {
 					VALIDATE_ALL_CODEBASE: "${{ github.event_name == 'workflow_dispatch' }}"
 					DEFAULT_BRANCH:        "main"

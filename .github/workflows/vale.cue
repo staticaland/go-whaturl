@@ -2,7 +2,7 @@ package workflows
 
 import "encoding/json"
 
-#SlackAction: {
+_#stepSlack: _#step & {
 	uses: string | *"slackapi/slack-github-action@936158bbe252e9a6062e793ea4609642c966e302"
 	env: SLACK_BOT_TOKEN: string | *"${{ secrets.SLACK_BOT_TOKEN }}"
 	with: {
@@ -97,23 +97,22 @@ vale: {
 		name:      "Vale"
 		"runs-on": "ubuntu-latest"
 		steps: [
-			_#checkout,
-			#SlackAction & {
+			_#stepCheckout,
+			_#stepSlack & {
 				with: {
 					"channel-id": "workflows"
 					payload:      json.Marshal(SlackMsgBeginDeployment)
 				}
 			},
-
-			{
-				uses: "errata-ai/vale-action@reviewdog"
+			_#step & {
+				uses: "errata-ai/vale-action@c4213d4de3d5f718b8497bd86161531c78992084"
 				env: GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}"
 				with: {
 					fail_on_error: true
 					reporter:      "github-check"
 				}
 			},
-			#SlackAction & {
+			_#stepSlack & {
 				if: "${{ failure() }}"
 				with: {
 					"channel-id": "workflows"
