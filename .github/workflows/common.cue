@@ -1,5 +1,9 @@
 package workflows
 
+_github_username: "staticaland"
+_project_name: "go-whaturl"
+_binary_name: "whaturl"
+
 _go_version: "1.18.5"
 
 _#step: {

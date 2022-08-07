@@ -16,6 +16,21 @@ command: genworkflows: {
 
 }
 
+command: d: {
+
+	file.Create & {
+		filename: "../dependabot.yml"
+		contents: yaml.Marshal(dependabot)
+	}
+}
+
+command: gr: {
+
+	file.Create & {
+		filename: "../../.goreleaser.yaml"
+		contents: yaml.Marshal(dotgoreleaser)
+	}
+}
 
 command: toolversions: {
 
