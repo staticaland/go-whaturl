@@ -6,7 +6,10 @@ codeql: {
 	name: "CodeQL"
 
 	on: {
-		push: branches: ["main"]
+		push: {
+			branches: _branches_default
+			paths: _paths_go
+		}
 		pull_request: branches: ["main"]
 		workflow_dispatch: null
 	}

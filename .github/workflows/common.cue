@@ -6,6 +6,14 @@ _binary_name: "whaturl"
 
 _go_version: "1.18.5"
 
+_paths_go: [
+	"**.go",
+	"go.mod",
+	"go.sum",
+]
+
+_branches_default: ["main"]
+
 _#step: {
 	uses?: =~"^[^@]+@[a-f0-9]{40}" // Must pin with SHA1
 	...

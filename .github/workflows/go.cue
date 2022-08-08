@@ -1,15 +1,12 @@
 package workflows
 
+
 go: {
 	name: "Tests"
 
 	on: push: {
-		branches: "main"
-		paths: [
-			"**.go",
-			"go.mod",
-			"go.sum",
-		]
+		branches: _branches_default
+		paths: _paths_go
 	}
 
 	jobs: build: {
