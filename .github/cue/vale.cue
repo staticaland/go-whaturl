@@ -1,4 +1,4 @@
-package workflows
+package whaturl
 
 import "encoding/json"
 
@@ -91,6 +91,8 @@ vale: _#workflow & {
 	on: pull_request: paths: [
 		"**.org",
 		"**.md",
+		".github/styles/**",
+		".vale.ini",
 	]
 	on: push: paths: on.pull_request.paths
 

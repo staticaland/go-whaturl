@@ -1,4 +1,4 @@
-package workflows
+package whaturl
 
 superlinter: _#workflow & {
 

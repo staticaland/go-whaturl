@@ -1,4 +1,4 @@
-package workflows
+package whaturl
 
 cue_yaml_reconciliation_check: _#workflow & {
 

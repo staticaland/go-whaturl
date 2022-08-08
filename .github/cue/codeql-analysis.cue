@@ -1,4 +1,4 @@
-package workflows
+package whaturl
 
 // https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning
 codeql: _#workflow & {
