@@ -5,7 +5,7 @@ import (
 	"encoding/yaml"
 )
 
-command: genworkflows: {
+command: gen: {
 
 	for w in workflows {
 		"\(w.filename)": file.Create & {
@@ -14,27 +14,17 @@ command: genworkflows: {
 		}
 	}
 
-}
-
-command: d: {
-
-	file.Create & {
+	"dependabot.yml": file.Create & {
 		filename: "../dependabot.yml"
 		contents: yaml.Marshal(dependabot)
 	}
-}
 
-command: gr: {
-
-	file.Create & {
+	"goreleaser.yaml": file.Create & {
 		filename: "../../.goreleaser.yaml"
 		contents: yaml.Marshal(dotgoreleaser)
 	}
-}
 
-command: toolversions: {
-
-	file.Create & {
+	".tool-versions": file.Create & {
 		filename: "../../.tool-versions"
 		contents: "go " + _go_version
 	}

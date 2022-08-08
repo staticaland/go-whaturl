@@ -14,7 +14,12 @@ jobs:
         with:
           version: latest
       - name: Regenerate YAML from CUE
-        run: rm ../workflows/*.yml && cue cmd genworkflows && cue cmd toolversions
+        run: |-
+          rm ../workflows/*.yml
+          rm ../dependabot.yml
+          rm ../../goreleaser.yaml
+          rm ../../.tool-versions
+          cue cmd gen
         working-directory: .github/cue
       - name: Check commit is clean
         run: test -z "$(git status --porcelain)" || (git status; git diff; false)
