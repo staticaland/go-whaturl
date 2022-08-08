@@ -7,6 +7,7 @@ _project_name: "go-whaturl"
 _binary_name: "whaturl"
 
 _go_version: "1.18.5"
+_cue_version: "0.4.3"
 
 _paths_go: [
 	"**.go",

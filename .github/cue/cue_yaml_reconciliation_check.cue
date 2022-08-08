@@ -18,7 +18,7 @@ cue_yaml_reconciliation_check: _#workflow & {
 			_#step & {
 				name: "Setup CUE environment"
 				uses: "cue-lang/setup-cue@143c2fe537047bf8c7ead6a30784ad1802e9d991"
-				with: version: "latest"
+				with: version: _cue_version
 			},
 			_#step & {
 				name:                "Regenerate YAML from CUE"

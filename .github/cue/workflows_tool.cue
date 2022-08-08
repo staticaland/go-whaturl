@@ -26,7 +26,7 @@ command: gen: {
 
 	".tool-versions": file.Create & {
 		filename: "../../.tool-versions"
-		contents: "go " + _go_version
+		contents: "go " + _go_version + "\ncue " + _cue_version + "\n"
 	}
 
 }
