@@ -5,8 +5,8 @@ superlinter: _#workflow & {
 	name: "Super-Linter"
 
 	on: {
-		pull_request:      null
-		workflow_dispatch: null
+		pull_request: {}
+		workflow_dispatch: {}
 	}
 
 	jobs: build: {

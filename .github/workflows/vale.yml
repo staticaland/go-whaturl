@@ -17,23 +17,23 @@ jobs:
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
       - name: Ring the bell
         uses: slackapi/slack-github-action@936158bbe252e9a6062e793ea4609642c966e302
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         with:
           channel-id: workflows
           payload: '{"text":"Deployment started (In Progress)","attachments":[{"pretext":"Deployment started","color":"dbab09","fields":[{"title":"Status","short":true,"value":"In Progress","run_link":"https://${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}]}]}'
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
       - name: Run Vale
         uses: errata-ai/vale-action@c4213d4de3d5f718b8497bd86161531c78992084
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
           fail_on_error: true
           reporter: github-check
-      - name: Ring the bell
-        if: ${{ failure() }}
-        uses: slackapi/slack-github-action@936158bbe252e9a6062e793ea4609642c966e302
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - if: ${{ failure() }}
+        name: Ring the bell
+        uses: slackapi/slack-github-action@936158bbe252e9a6062e793ea4609642c966e302
         with:
           channel-id: workflows
           payload: '{"text":"Vale deployment failure","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"*Vale* deployment :warning: failure :warning:"}},{"type":"divider"},{"type":"section","text":{"type":"mrkdwn","text":"Vale DocOps failed deployment during. Write better! The best way to fix this particular issue is \u003chttps://github.com/${{github.repository}}/actions/runs/${{github.run_id}}|viewing the CI server logs\u003e to learn why and fix the issue."}}]}'
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

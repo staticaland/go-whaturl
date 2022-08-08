@@ -1,6 +1,5 @@
 package workflows
 
-
 go: _#workflow & {
 
 	name: "Tests"

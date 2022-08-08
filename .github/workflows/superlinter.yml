@@ -1,16 +1,16 @@
 name: Super-Linter
 "on":
-  pull_request: null
-  workflow_dispatch: null
+  pull_request: {}
+  workflow_dispatch: {}
 jobs:
   build:
     name: Lint Code Base
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
         with:
           fetch-depth: 0
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
       - name: Lint Code Base
         uses: github/super-linter/slim@01d3218744765b55c3b5ffbb27e50961e50c33c5
         env:

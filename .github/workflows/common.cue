@@ -1,5 +1,7 @@
 package workflows
 
+import "json.schemastore.org/github"
+
 _github_username: "staticaland"
 _project_name: "go-whaturl"
 _binary_name: "whaturl"
@@ -14,7 +16,7 @@ _paths_go: [
 
 _branches_default: ["main"]
 
-_#workflow: {
+_#workflow: github.#workflow & {
 	name: string
 	...
 }
@@ -23,6 +25,9 @@ _#workflow: {
 	name: =~"^[A-Z].*" // Sentence case
 	...
 }
+
+_#job:  ((github.#workflow & {}).jobs & {x: _}).x
+_#step: ((_#job & {steps:                   _}).steps & [_])[0]
 
 _#step: {
 	name: =~"^[A-Z].*" // Sentence case
