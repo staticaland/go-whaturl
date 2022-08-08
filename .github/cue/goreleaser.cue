@@ -2,25 +2,23 @@ package whaturl
 
 import "encoding/json"
 
-_slackBlockRelease: {
-	"blocks": [
-		{
-			"type": "section"
-			"text": {
-				"type": "mrkdwn"
-				"text": "A new version of `whaturl` has been released: `yo` :tada:"
+_slackBlockRelease: blocks: [
+	{
+		type: "section"
+		text: {
+			type: "mrkdwn"
+			text: "A new version of `whaturl` has been released: `yo` :tada:"
+		}
+		accessory: {
+			type: "button"
+			text: {
+				type: "plain_text"
+				text: "See details"
 			}
-			"accessory": {
-				"type": "button"
-				"text": {
-					"type": "plain_text"
-					"text": "See details"
-				}
-				"url": "https://github.com/staticaland/go-whaturl/releases"
-			}
-		},
-	]
-}
+			url: "https://github.com/staticaland/go-whaturl/releases"
+		}
+	},
+]
 
 goreleaser: _#workflow & {
 
@@ -62,9 +60,7 @@ goreleaser: _#workflow & {
 			"runs-on": "ubuntu-latest"
 			steps: [
 				_#stepSlack & {
-					with: {
-						payload: json.Marshal(_slackBlockRelease)
-					}
+					with: payload: json.Marshal(_slackBlockRelease)
 				},
 			]
 		}

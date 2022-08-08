@@ -19,10 +19,10 @@ _#slackPayload: {
 		pretext: string
 		color:   string
 		fields: [{
-			title:      string
-			short:      bool | *true
-			value:      string
-			"run_link": string | *"https://${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+			title:    string
+			short:    bool | *true
+			value:    string
+			run_link: string | *"https://${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 		}]
 		...
 	}]
@@ -30,38 +30,38 @@ _#slackPayload: {
 }
 
 _slackBlocks: {
-	"text": "Vale deployment failure"
-	"blocks": [
+	text: "Vale deployment failure"
+	blocks: [
 		{
-			"type": "section"
-			"text": {
-				"type": "mrkdwn"
-				"text": "*Vale* deployment :warning: failure :warning:"
+			type: "section"
+			text: {
+				type: "mrkdwn"
+				text: "*Vale* deployment :warning: failure :warning:"
 			}
 		},
 		{
-			"type": "divider"
+			type: "divider"
 		},
 		{
-			"type": "section"
-			"text": {
-				"type": "mrkdwn"
-				"text": "Vale DocOps failed deployment during. Write better! The best way to fix this particular issue is <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}|viewing the CI server logs> to learn why and fix the issue."
+			type: "section"
+			text: {
+				type: "mrkdwn"
+				text: "Vale DocOps failed deployment during. Write better! The best way to fix this particular issue is <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}|viewing the CI server logs> to learn why and fix the issue."
 			}
 		},
 	]
 }
 
 _slackMsgBeginDeployment: _#slackPayload & {
-	"text": "Deployment started (In Progress)"
-	"attachments": [
+	text: "Deployment started (In Progress)"
+	attachments: [
 		{
-			"pretext": "Deployment started"
-			"color":   "dbab09"
-			"fields": [
+			pretext: "Deployment started"
+			color:   "dbab09"
+			fields: [
 				{
-					"title": "Status"
-					"value": "In Progress"
+					title: "Status"
+					value: "In Progress"
 				},
 			]
 		},
@@ -69,15 +69,15 @@ _slackMsgBeginDeployment: _#slackPayload & {
 }
 
 _slackMsgCompleteDeployment: _#slackPayload & {
-	"text": "Deployment finished (Completed)"
-	"attachments": [
+	text: "Deployment finished (Completed)"
+	attachments: [
 		{
-			"pretext": "Deployment finished"
-			"color":   "28a745"
-			"fields": [
+			pretext: "Deployment finished"
+			color:   "28a745"
+			fields: [
 				{
-					"title": "Status"
-					"value": "Completed"
+					title: "Status"
+					value: "Completed"
 				},
 			]
 		},
@@ -102,9 +102,7 @@ vale: _#workflow & {
 		steps: [
 			_#stepCheckout,
 			_#stepSlack & {
-				with: {
-					payload: json.Marshal(_slackMsgBeginDeployment)
-				}
+				with: payload: json.Marshal(_slackMsgBeginDeployment)
 			},
 			_#step & {
 				name: "Run Vale"
@@ -117,9 +115,7 @@ vale: _#workflow & {
 			},
 			_#stepSlack & {
 				if: "${{ failure() }}"
-				with: {
-					payload: json.Marshal(_slackBlocks)
-				}
+				with: payload: json.Marshal(_slackBlocks)
 			},
 		]
 

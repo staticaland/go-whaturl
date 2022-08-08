@@ -3,10 +3,10 @@ package whaturl
 import "json.schemastore.org/github"
 
 _github_username: "staticaland"
-_project_name: "go-whaturl"
-_binary_name: "whaturl"
+_project_name:    "go-whaturl"
+_binary_name:     "whaturl"
 
-_go_version: "1.18.5"
+_go_version:  "1.18.5"
 _cue_version: "0.4.3"
 
 _paths_go: [
@@ -31,7 +31,7 @@ _#job:  ((github.#workflow & {}).jobs & {x: _}).x
 _#step: ((_#job & {steps:                   _}).steps & [_])[0]
 
 _#step: {
-	name: =~"^[A-Z].*" // Sentence case
+	name:  =~"^[A-Z].*"            // Sentence case
 	uses?: =~"^[^@]+@[a-f0-9]{40}" // Must pin with SHA1
 	...
 }

@@ -6,7 +6,7 @@ go: _#workflow & {
 
 	on: push: {
 		branches: _branches_default
-		paths: _paths_go
+		paths:    _paths_go
 	}
 
 	jobs: build: {
