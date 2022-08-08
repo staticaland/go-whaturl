@@ -1,7 +1,5 @@
 package whaturl
 
-import "encoding/json"
-
 _#stepSlack: _#step & {
 	name: string | *"Ring the bell"
 	uses: string | *"slackapi/slack-github-action@936158bbe252e9a6062e793ea4609642c966e302"
@@ -101,9 +99,6 @@ vale: _#workflow & {
 		"runs-on": "ubuntu-latest"
 		steps: [
 			_#stepCheckout,
-			_#stepSlack & {
-				with: payload: json.Marshal(_slackMsgBeginDeployment)
-			},
 			_#step & {
 				name: "Run Vale"
 				uses: "errata-ai/vale-action@c4213d4de3d5f718b8497bd86161531c78992084"
@@ -112,10 +107,6 @@ vale: _#workflow & {
 					fail_on_error: true
 					reporter:      "github-check"
 				}
-			},
-			_#stepSlack & {
-				if: "${{ failure() }}"
-				with: payload: json.Marshal(_slackBlocks)
 			},
 		]
 

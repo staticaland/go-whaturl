@@ -1,7 +1,5 @@
 package whaturl
 
-import "encoding/json"
-
 _slackBlockRelease: blocks: [
 	{
 		type: "section"
@@ -32,8 +30,10 @@ goreleaser: _#workflow & {
 
 	jobs: {
 
-		goreleaser: {
+		goreleaser: _#job & {
+			name:      "Create a release"
 			"runs-on": "ubuntu-latest"
+
 			steps: [
 				_#stepCheckout & {
 					with: "fetch-depth": 0
@@ -55,12 +55,13 @@ goreleaser: _#workflow & {
 				}]
 		}
 
-		notify: {
+		notify: _#job & {
 			name:      "Perform Slack notification"
 			"runs-on": "ubuntu-latest"
+
 			steps: [
 				_#stepSlack & {
-					with: payload: json.Marshal(_slackBlockRelease)
+					with: "slack-message": "A new version of `whaturl` has been released :tada:"
 				},
 			]
 		}

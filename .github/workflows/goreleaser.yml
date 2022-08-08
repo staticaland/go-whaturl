@@ -7,6 +7,7 @@ name: GoReleaser
       - '*'
 jobs:
   goreleaser:
+    name: Create a release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,7 +36,7 @@ jobs:
         uses: slackapi/slack-github-action@936158bbe252e9a6062e793ea4609642c966e302
         with:
           channel-id: workflows
-          payload: '{"blocks":[{"type":"section","text":{"type":"mrkdwn","text":"A new version of `whaturl` has been released: `yo` :tada:"},"accessory":{"type":"button","text":{"type":"plain_text","text":"See details"},"url":"https://github.com/staticaland/go-whaturl/releases"}}]}'
+          slack-message: 'A new version of `whaturl` has been released :tada:'
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 permissions:

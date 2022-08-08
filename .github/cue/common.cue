@@ -27,8 +27,14 @@ _#workflow: {
 	...
 }
 
-_#job:  ((github.#workflow & {}).jobs & {x: _}).x
-_#step: ((_#job & {steps:                   _}).steps & [_])[0]
+_#job: ((github.#workflow & {}).jobs & {x: _}).x
+
+_#job: {
+	name: =~"^[A-Z].*" // Sentence case
+	...
+}
+
+_#step: ((_#job & {steps: _}).steps & [_])[0]
 
 _#step: {
 	name:  =~"^[A-Z].*"            // Sentence case
