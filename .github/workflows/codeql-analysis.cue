@@ -10,7 +10,7 @@ codeql: {
 			branches: _branches_default
 			paths: _paths_go
 		}
-		pull_request: branches: ["main"]
+		pull_request: branches: _branches_default
 		workflow_dispatch: null
 	}
 
