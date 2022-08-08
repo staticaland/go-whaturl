@@ -85,7 +85,7 @@ _slackMsgCompleteDeployment: _#slackPayload & {
 	]
 }
 
-vale: {
+vale: _#workflow & {
 
 	name: "Vale"
 

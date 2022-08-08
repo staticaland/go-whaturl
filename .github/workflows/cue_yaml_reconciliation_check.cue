@@ -1,13 +1,13 @@
 package workflows
 
-cue_yaml_reconciliation_check: {
+cue_yaml_reconciliation_check: _#workflow & {
+
+	name: "CUE and YAML reconciliation check"
 
 	on: [
 		"push",
 		"pull_request",
 	]
-
-	name: "CUE and YAML reconciliation check"
 
 	jobs: cue_reconciliation: {
 		name:      "Verify CUE matches YAML configuration"

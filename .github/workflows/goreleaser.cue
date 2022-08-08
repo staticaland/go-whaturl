@@ -22,7 +22,7 @@ _slackBlockRelease: {
 	]
 }
 
-goreleaser: {
+goreleaser: _#workflow & {
 
 	name: "GoReleaser"
 

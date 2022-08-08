@@ -1,7 +1,8 @@
 package workflows
 
 
-go: {
+go: _#workflow & {
+
 	name: "Tests"
 
 	on: push: {

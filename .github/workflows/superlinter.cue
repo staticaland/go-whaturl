@@ -1,6 +1,6 @@
 package workflows
 
-superlinter: {
+superlinter: _#workflow & {
 
 	name: "Super-Linter"
 
