@@ -52,7 +52,6 @@ _slackBlocks: {
 	]
 }
 
-
 _slackMsgBeginDeployment: _#slackPayload & {
 	"text": "Deployment started (In Progress)"
 	"attachments": [
@@ -102,8 +101,7 @@ vale: _#workflow & {
 			_#stepCheckout,
 			_#stepSlack & {
 				with: {
-					"channel-id": "workflows"
-					payload:      json.Marshal(_slackMsgBeginDeployment)
+					payload: json.Marshal(_slackMsgBeginDeployment)
 				}
 			},
 			_#step & {
@@ -118,8 +116,7 @@ vale: _#workflow & {
 			_#stepSlack & {
 				if: "${{ failure() }}"
 				with: {
-					"channel-id": "workflows"
-					payload:      json.Marshal(_slackBlocks)
+					payload: json.Marshal(_slackBlocks)
 				}
 			},
 		]
