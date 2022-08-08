@@ -26,7 +26,7 @@ cue_yaml_reconciliation_check: _#workflow & {
 				run: """
 					rm ../workflows/*.yml
 					rm ../dependabot.yml
-					rm ../../goreleaser.yaml
+					rm ../../.goreleaser.yaml
 					rm ../../.tool-versions
 					cue cmd gen
 					"""
