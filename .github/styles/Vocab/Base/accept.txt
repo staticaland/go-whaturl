@@ -10,3 +10,5 @@ Config Generator
 CUE
 cue
 config
+Config
+auto-link
