@@ -17,7 +17,7 @@ jobs:
         run: |-
           rm ../workflows/*.yml
           rm ../dependabot.yml
-          rm ../../goreleaser.yaml
+          rm ../../.goreleaser.yaml
           rm ../../.tool-versions
           cue cmd gen
         working-directory: .github/cue
