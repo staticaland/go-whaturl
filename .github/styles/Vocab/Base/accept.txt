@@ -7,3 +7,5 @@ Bookmarklets
 actionlint
 Dependabot
 Config Generator
+CUE
+config
