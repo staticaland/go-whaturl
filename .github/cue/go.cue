@@ -9,8 +9,10 @@ go: _#workflow & {
 		paths:    _paths_go
 	}
 
-	jobs: build: {
-		"runs-on": "ubuntu-latest"
+	jobs: build: _#job & {
+
+		name: "Build and test the Go code"
+
 		steps: [
 			_#stepCheckout,
 			_#stepSetupGo,

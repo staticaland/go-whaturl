@@ -30,7 +30,8 @@ _#workflow: {
 _#job: ((github.#workflow & {}).jobs & {x: _}).x
 
 _#job: {
-	name: =~"^[A-Z].*" // Sentence case
+	name:      =~"^[A-Z].*" // Sentence case
+	"runs-on": "ubuntu-latest"
 	...
 }
 

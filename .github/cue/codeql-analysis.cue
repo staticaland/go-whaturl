@@ -16,14 +16,15 @@ codeql: _#workflow & {
 
 	permissions: contents: "read"
 
-	jobs: analyze: {
+	jobs: analyze: _#job & {
+
+		name: "Analyze"
+
 		permissions: {
 			actions:           "read" // for github/codeql-action/init to get workflow details
 			contents:          "read" // for actions/checkout to fetch code
 			"security-events": "write"
 		} // for github/codeql-action/autobuild to send a status report
-		name:      "Analyze"
-		"runs-on": "ubuntu-latest"
 
 		strategy: {
 			"fail-fast": false

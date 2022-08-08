@@ -31,8 +31,7 @@ goreleaser: _#workflow & {
 	jobs: {
 
 		goreleaser: _#job & {
-			name:      "Create a release"
-			"runs-on": "ubuntu-latest"
+			name: "Create a release"
 
 			steps: [
 				_#stepCheckout & {
@@ -56,8 +55,7 @@ goreleaser: _#workflow & {
 		}
 
 		notify: _#job & {
-			name:      "Perform Slack notification"
-			"runs-on": "ubuntu-latest"
+			name: "Perform Slack notification"
 
 			steps: [
 				_#stepSlack & {

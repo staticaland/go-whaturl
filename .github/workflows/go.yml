@@ -11,6 +11,7 @@ name: Tests
       - go.sum
 jobs:
   build:
+    name: Build and test the Go code
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

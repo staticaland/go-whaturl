@@ -9,7 +9,7 @@ cue_formatting_check: _#workflow & {
 		"pull_request",
 	]
 
-	jobs: cue_reconciliation: {
+	jobs: cue_fmt_check: _#job & {
 		name:      "CUE formatting check"
 		"runs-on": "ubuntu-latest"
 

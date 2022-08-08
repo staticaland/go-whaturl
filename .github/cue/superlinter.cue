@@ -9,9 +9,8 @@ superlinter: _#workflow & {
 		workflow_dispatch: {}
 	}
 
-	jobs: build: {
-		name:      "Lint Code Base"
-		"runs-on": "ubuntu-latest"
+	jobs: build: _#job & {
+		name: "Lint Code Base"
 
 		steps: [
 			_#stepCheckout & {

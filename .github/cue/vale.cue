@@ -94,9 +94,8 @@ vale: _#workflow & {
 	]
 	on: push: paths: on.pull_request.paths
 
-	jobs: vale: {
-		name:      "Vale"
-		"runs-on": "ubuntu-latest"
+	jobs: vale: _#job & {
+		name: "Vale"
 		steps: [
 			_#stepCheckout,
 			_#step & {

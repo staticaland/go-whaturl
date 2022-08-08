@@ -9,9 +9,8 @@ cue_yaml_reconciliation_check: _#workflow & {
 		"pull_request",
 	]
 
-	jobs: cue_reconciliation: {
-		name:      "Verify CUE matches YAML configuration"
-		"runs-on": "ubuntu-latest"
+	jobs: cue_reconciliation: _#job & {
+		name: "Verify CUE matches YAML configuration"
 
 		steps: [
 			_#stepCheckout,

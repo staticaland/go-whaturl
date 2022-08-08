@@ -5,7 +5,7 @@ name: CUE formatting check
   - push
   - pull_request
 jobs:
-  cue_reconciliation:
+  cue_fmt_check:
     name: CUE formatting check
     runs-on: ubuntu-latest
     steps:
