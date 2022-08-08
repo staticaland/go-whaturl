@@ -8,4 +8,5 @@ actionlint
 Dependabot
 Config Generator
 CUE
+cue
 config
