@@ -43,8 +43,19 @@ _#stepSetupGo: _#step & {
 	...
 }
 
+_#stepSetupCue: _#step & {
+	name: "Setup CUE environment"
+	uses: "cue-lang/setup-cue@143c2fe537047bf8c7ead6a30784ad1802e9d991"
+	with: version: "v" + _cue_version
+}
+
 _#stepCheckout: _#step & {
 	name: "Checkout"
 	uses: "actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b" // v3.0.2
 	...
+}
+
+_#stepGitDiffCheck: _#step & {
+	name: "Check commit is clean"
+	run:  "test -z \"$(git status --porcelain)\" || (git status; git diff; false)"
 }

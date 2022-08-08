@@ -15,11 +15,7 @@ cue_yaml_reconciliation_check: _#workflow & {
 
 		steps: [
 			_#stepCheckout,
-			_#step & {
-				name: "Setup CUE environment"
-				uses: "cue-lang/setup-cue@143c2fe537047bf8c7ead6a30784ad1802e9d991"
-				with: version: "v" + _cue_version
-			},
+			_#stepSetupCue,
 			_#step & {
 				name:                "Regenerate YAML from CUE"
 				"working-directory": ".github/cue"
@@ -31,10 +27,8 @@ cue_yaml_reconciliation_check: _#workflow & {
 					cue cmd gen
 					"""
 			},
-			_#step & {
-				name: "Check commit is clean"
-				run:  "test -z \"$(git status --porcelain)\" || (git status; git diff; false)"
-			}]
+			_#stepGitDiffCheck,
+		]
 	}
 
 }

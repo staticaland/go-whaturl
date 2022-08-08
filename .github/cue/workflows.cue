@@ -25,5 +25,9 @@ workflows: [
 		filename: "../workflows/codeql-analysis.yml"
 		workflow: codeql
 	},
+	{
+		filename: "../workflows/cue_fmt_check.yml"
+		workflow: cue_formatting_check
+	},
 
 ]
