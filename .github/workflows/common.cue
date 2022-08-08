@@ -14,7 +14,18 @@ _paths_go: [
 
 _branches_default: ["main"]
 
+_#workflow: {
+	name: string
+	...
+}
+
+_#workflow: {
+	name: =~"^[A-Z].*" // Sentence case
+	...
+}
+
 _#step: {
+	name: =~"^[A-Z].*" // Sentence case
 	uses?: =~"^[^@]+@[a-f0-9]{40}" // Must pin with SHA1
 	...
 }

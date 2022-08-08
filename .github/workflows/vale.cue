@@ -3,6 +3,7 @@ package workflows
 import "encoding/json"
 
 _#stepSlack: _#step & {
+	name: string | *"Ring the bell"
 	uses: string | *"slackapi/slack-github-action@936158bbe252e9a6062e793ea4609642c966e302"
 	env: SLACK_BOT_TOKEN: string | *"${{ secrets.SLACK_BOT_TOKEN }}"
 	with: {
@@ -106,6 +107,7 @@ vale: {
 				}
 			},
 			_#step & {
+				name: "Run Vale"
 				uses: "errata-ai/vale-action@c4213d4de3d5f718b8497bd86161531c78992084"
 				env: GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}"
 				with: {

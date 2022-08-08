@@ -31,7 +31,8 @@ jobs:
     name: Perform Slack notification
     runs-on: ubuntu-latest
     steps:
-      - uses: slackapi/slack-github-action@936158bbe252e9a6062e793ea4609642c966e302
+      - name: Ring the bell
+        uses: slackapi/slack-github-action@936158bbe252e9a6062e793ea4609642c966e302
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         with:
