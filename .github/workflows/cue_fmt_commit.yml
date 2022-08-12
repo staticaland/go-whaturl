@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
+        with:
+          ref: ${{ github.head_ref }}
       - name: Setup CUE environment
         uses: cue-lang/setup-cue@143c2fe537047bf8c7ead6a30784ad1802e9d991
         with:
