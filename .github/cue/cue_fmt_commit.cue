@@ -4,7 +4,7 @@ cue_formatting_commit: _#workflow & {
 
 	name: "CUE formatting check and commit"
 
-	on: push: pull_request: paths: _paths_cue
+	on: pull_request: paths: _paths_cue
 
 	jobs: cue_fmt_check: _#job & {
 		name: "CUE formatting check and commit"
