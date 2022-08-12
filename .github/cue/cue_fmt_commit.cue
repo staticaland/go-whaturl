@@ -4,9 +4,7 @@ cue_formatting_commit: _#workflow & {
 
 	name: "CUE formatting check and commit"
 
-	on: [
-		"pull_request",
-	]
+	on: pull_request: paths: _paths_cue
 
 	jobs: cue_fmt_check: _#job & {
 		name: "CUE formatting check and commit"
@@ -19,7 +17,7 @@ cue_formatting_commit: _#workflow & {
 				"working-directory": ".github/cue"
 				run:                 "cue fmt -s"
 			},
-			_#stepGitDiffCheck,
+			_#stepGitDiffModified,
 			_#stepPushChanges,
 		]
 	}

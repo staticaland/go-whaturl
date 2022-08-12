@@ -15,6 +15,11 @@ _paths_go: [
 	"go.sum",
 ]
 
+_paths_cue: [
+	"**.cue",
+	"**.yml",
+]
+
 _branches_default: ["main"]
 
 _#workflow: github.#workflow & {
@@ -67,8 +72,17 @@ _#stepGitDiffCheck: _#step & {
 	run:  "test -z \"$(git status --porcelain)\" || (git status; git diff; false)"
 }
 
+_stepIdGitCheck: "git-check"
+
+_#stepGitDiffModified: _#step & {
+	name: "Check for modified files"
+	id:   _stepIdGitCheck
+	run:  #"echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)"#
+}
+
 _#stepPushChanges: _#step & {
 	name: "Push changes"
+	if:   "steps." + _stepIdGitCheck + ".outputs.modified == 'true'"
 	run: """
 		git config --global user.name 'Anders K. Pettersen'
 		git config --global user.email 'staticaland@users.noreply.github.com'
