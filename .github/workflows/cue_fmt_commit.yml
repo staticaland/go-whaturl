@@ -2,7 +2,11 @@
 
 name: CUE formatting check and commit
 "on":
-  - pull_request
+  push:
+    pull_request:
+      paths:
+        - '**.cue'
+        - '**.yml'
 jobs:
   cue_fmt_check:
     name: CUE formatting check and commit
@@ -17,9 +21,11 @@ jobs:
       - name: Check formatting
         run: cue fmt -s
         working-directory: .github/cue
-      - name: Check commit is clean
-        run: test -z "$(git status --porcelain)" || (git status; git diff; false)
-      - name: Push changes
+      - id: git-check
+        name: Check for modified files
+        run: echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
+      - if: steps.git-check.outputs.modified == 'true'
+        name: Push changes
         run: |-
           git config --global user.name 'Anders K. Pettersen'
           git config --global user.email 'staticaland@users.noreply.github.com'
