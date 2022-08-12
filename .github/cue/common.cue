@@ -84,8 +84,8 @@ _#stepPushChanges: _#step & {
 	name: "Push changes"
 	if:   "steps." + _stepIdGitCheck + ".outputs.modified == 'true'"
 	run: """
-		git config --global user.name 'Anders K. Pettersen'
-		git config --global user.email 'staticaland@users.noreply.github.com'
+		git config --global user.name 'github-actions[bot]'
+		git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
 
 		git commit -am "style: Automated changes"
 
