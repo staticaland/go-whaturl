@@ -10,7 +10,9 @@ cue_formatting_commit: _#workflow & {
 		name: "CUE formatting check and commit"
 
 		steps: [
-			_#stepCheckout,
+			_#stepCheckout & {
+				with: ref: "${{ github.head_ref }}"
+			},
 			_#stepSetupCue,
 			_#step & {
 				name:                "Check formatting"
