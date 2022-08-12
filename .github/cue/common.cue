@@ -10,7 +10,7 @@ _go_version:  "1.18.5"
 _cue_version: "0.4.3"
 
 _paths_go: [
-	 "**.go",
+	"**.go",
 	"go.mod",
 	"go.sum",
 ]
