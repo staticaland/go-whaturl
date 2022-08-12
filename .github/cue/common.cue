@@ -66,3 +66,16 @@ _#stepGitDiffCheck: _#step & {
 	name: "Check commit is clean"
 	run:  "test -z \"$(git status --porcelain)\" || (git status; git diff; false)"
 }
+
+_#stepPushChanges: _#step & {
+	name: "Push changes"
+	run: """
+		git config --global user.name 'Anders K. Pettersen'
+		git config --global user.email 'staticaland@users.noreply.github.com'
+
+		git commit -am "style: Automated changes"
+
+		git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+		git push
+		"""
+}

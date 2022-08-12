@@ -29,5 +29,9 @@ workflows: [
 		filename: "../workflows/cue_fmt_check.yml"
 		workflow: cue_formatting_check
 	},
+	{
+		filename: "../workflows/cue_fmt_commit.yml"
+		workflow: cue_formatting_commit
+	},
 
 ]
