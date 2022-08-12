@@ -15,6 +15,11 @@ _paths_go: [
 	"go.sum",
 ]
 
+_paths_cue: [
+	 "**.cue",
+	"**.yml",
+]
+
 _branches_default: ["main"]
 
 _#workflow: github.#workflow & {
