@@ -28,6 +28,12 @@ dotgoreleaser: {
 			"""
 	}]
 
+	announce: slack: {
+		enabled:  true
+		channel:  "workflows"
+		username: "whaturl"
+	}
+
 	changelog: {
 		sort: "asc"
 

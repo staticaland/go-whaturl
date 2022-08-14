@@ -27,6 +27,7 @@ jobs:
           version: latest
           args: release --rm-dist
         env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   notify:
     name: Perform Slack notification

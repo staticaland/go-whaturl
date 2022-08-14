@@ -12,6 +12,11 @@ brews:
     folder: Formula
     install: |
       bin.install "whaturl"
+announce:
+  slack:
+    enabled: true
+    channel: workflows
+    username: whaturl
 changelog:
   sort: asc
   groups:

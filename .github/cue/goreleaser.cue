@@ -50,7 +50,10 @@ goreleaser: _#workflow & {
 						version:      "latest"
 						args:         "release --rm-dist"
 					}
-					env: GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+					env: {
+						SLACK_WEBHOOK: "${{ secrets.SLACK_WEBHOOK_URL }}"
+						GITHUB_TOKEN:  "${{ secrets.GITHUB_TOKEN }}"
+					}
 				}]
 		}
 
