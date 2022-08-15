@@ -1,0 +1,34 @@
+baseURL: https://example.com/
+title: Hugo Book
+module:
+  imports:
+    path: github.com/alex-shpak/hugo-book
+theme: hugo-book
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  tableOfContents:
+    startLevel: 1
+disablePathToLower: true
+enableGitInfo: true
+menu:
+  after:
+    - name: Github
+      url: https://github.com/alex-shpak/hugo-book
+      weight: 10
+    - name: Hugo Themes
+      url: https://themes.gohugo.io/hugo-book/
+      weight: 20
+params:
+  BookTheme: light
+  BookToC: true
+  BookSection: docs
+  BookRepo: https://github.com/alex-shpak/hugo-book
+  BookEditPath: edit/main/exampleSite
+  BookDateFormat: January 2, 2006
+  BookSearch: true
+  BookComments: true
+  BookPortableLinks: true
+  BookServiceWorker: true
+  BookTranslatedOnly: false
