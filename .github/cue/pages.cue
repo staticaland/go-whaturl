@@ -49,7 +49,7 @@ pages: _#workflow & {
 				},
 				_#step & {
 					name:                "Build with Hugo"
-					"working-directory": "docs"
+					"working-directory": "./docs"
 					run: """
 						hugo \\
 							--minify \\
@@ -58,10 +58,9 @@ pages: _#workflow & {
 						"""
 				},
 				_#step & {
-					name:                "Upload artifact"
-					"working-directory": "docs"
-					uses:                "actions/upload-pages-artifact@6a57e48bf6d74ddc95cf0cfa136a09fff27067b8"
-					with: path: "./public"
+					name: "Upload artifact"
+					uses: "actions/upload-pages-artifact@6a57e48bf6d74ddc95cf0cfa136a09fff27067b8"
+					with: path: "./docs/public"
 				}]
 
 		}

@@ -35,12 +35,11 @@ jobs:
           hugo \
           	--minify \
           	--baseURL ${{ steps.pages.outputs.base_url }}
-        working-directory: docs
+        working-directory: ./docs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@6a57e48bf6d74ddc95cf0cfa136a09fff27067b8
-        working-directory: docs
         with:
-          path: ./public
+          path: ./docs/public
 permissions:
   contents: read
   pages: write
