@@ -2,8 +2,11 @@
 
 name: CUE and YAML reconciliation check
 "on":
-  - push
-  - pull_request
+  push:
+    branches:
+      - main
+  pull_request: {}
+  workflow_dispatch: null
 jobs:
   cue_reconciliation:
     name: Verify CUE matches YAML configuration

@@ -4,10 +4,11 @@ cue_yaml_reconciliation_check: _#workflow & {
 
 	name: "CUE and YAML reconciliation check"
 
-	on: [
-		"push",
-		"pull_request",
-	]
+	on: {
+		push: branches: _branches_default
+		pull_request: {}
+		workflow_dispatch: null
+	}
 
 	jobs: cue_reconciliation: _#job & {
 		name: "Verify CUE matches YAML configuration"
