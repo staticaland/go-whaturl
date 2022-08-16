@@ -19,6 +19,10 @@ jobs:
     env:
       HUGO_VERSION: 0.99.0
     steps:
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
+        with:
+          submodules: recursive
       - name: Convert README to Hugo compatible MD
         uses: docker://pandoc/core@sha256:65d98a5fb89867961479c16f4597134517923661aca23ef63843f6b6e623508b
         with:
@@ -27,10 +31,6 @@ jobs:
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
-      - name: Checkout
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
-        with:
-          submodules: recursive
       - id: pages
         name: Setup Pages
         uses: actions/configure-pages@e22fa7ebed408f1742133d89012dbe1dad4646fc

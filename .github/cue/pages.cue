@@ -33,6 +33,7 @@ pages: _#workflow & {
 			env: HUGO_VERSION: "0.99.0"
 
 			steps: [
+				_#stepCheckout & {with: submodules: "recursive"},
 				_#step & {
 					name: "Convert README to Hugo compatible MD"
 					uses: "docker://pandoc/core@sha256:65d98a5fb89867961479c16f4597134517923661aca23ef63843f6b6e623508b"
@@ -46,7 +47,6 @@ pages: _#workflow & {
 
 						"""
 				},
-				_#stepCheckout & {with: submodules: "recursive"},
 				_#step & {
 					name: "Setup Pages"
 					id:   "pages"
