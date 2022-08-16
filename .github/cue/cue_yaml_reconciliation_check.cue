@@ -24,6 +24,7 @@ cue_yaml_reconciliation_check: _#workflow & {
 					rm ../dependabot.yml
 					rm ../../.goreleaser.yaml
 					rm ../../.tool-versions
+					rm ../../docs/config.yml
 					cue cmd gen
 					"""
 			},
