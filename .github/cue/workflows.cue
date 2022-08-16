@@ -33,5 +33,8 @@ workflows: [
 		filename: "../workflows/cue_fmt_commit.yml"
 		workflow: cue_formatting_commit
 	},
-
+	{
+		filename: "../workflows/pages.yml"
+		workflow: pages
+	},
 ]
