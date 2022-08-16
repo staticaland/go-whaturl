@@ -35,7 +35,7 @@ pages: _#workflow & {
 			steps: [
 				_#step & {
 					name: "Convert README to Hugo compatible MD"
-					uses: "docker://pandoc/core:65d98a5fb89867961479c16f4597134517923661aca23ef63843f6b6e623508b"
+					uses: "docker://pandoc/core@sha256:65d98a5fb89867961479c16f4597134517923661aca23ef63843f6b6e623508b"
 					with: args: "--from=org --to=gfm --output docs/content/index.md README.org"
 				},
 				_#step & {
