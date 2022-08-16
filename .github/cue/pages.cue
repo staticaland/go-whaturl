@@ -79,7 +79,7 @@ pages: _#workflow & {
 			steps: [{
 				name: "Deploy to GitHub Pages"
 				id:   "deployment"
-				uses: "actions/deploy-pages@6a57e48bf6d74ddc95cf0cfa136a09fff27067b8"
+				uses: "actions/deploy-pages@e490850a64fea2143eb618fcd4453e397842ae0c"
 			}]
 		}
 	}
