@@ -65,7 +65,7 @@ pages: _#workflow & {
 
 		}
 
-		_deploy: _#job & {
+		deploy: _#job & {
 
 			name: "Deploy to GitHub Pages"
 

@@ -40,6 +40,17 @@ jobs:
         uses: actions/upload-pages-artifact@6a57e48bf6d74ddc95cf0cfa136a09fff27067b8
         with:
           path: ./docs/public
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@6a57e48bf6d74ddc95cf0cfa136a09fff27067b8
 permissions:
   contents: read
   pages: write
