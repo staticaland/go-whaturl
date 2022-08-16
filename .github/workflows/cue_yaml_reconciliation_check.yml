@@ -24,6 +24,7 @@ jobs:
           rm ../dependabot.yml
           rm ../../.goreleaser.yaml
           rm ../../.tool-versions
+          rm ../../docs/config.yml
           cue cmd gen
         working-directory: .github/cue
       - name: Check commit is clean

@@ -43,8 +43,8 @@ _#job: {
 _#step: ((_#job & {steps: _}).steps & [_])[0]
 
 _#step: {
-	name:  =~"^[A-Z].*"            // Sentence case
-	uses?: =~"^[^@]+@[a-f0-9]{40}" // Must pin with SHA1
+	name:  =~"^[A-Z].*"                                             // Sentence case
+	uses?: =~"(^docker:[^:]+:[A-Fa-f0-9]{64}$|^[^@]+@[a-f0-9]{40})" // Must pin with SHA1 (Git) or SHA256 (Docker)
 	...
 }
 
