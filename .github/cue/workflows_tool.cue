@@ -33,4 +33,9 @@ command: gen: {
 		contents: "go " + _go_version + "\ncue " + _cue_version + "\n"
 	}
 
+	"config.yml": file.Create & {
+		filename: "../../docs/config.yml"
+		contents: yaml.Marshal(hugo)
+	}
+
 }
