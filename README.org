@@ -20,6 +20,9 @@
     <a href="https://github.com/staticaland/go-whaturl/releases">
         <img alt="Version" src="https://img.shields.io/github/v/release/staticaland/go-whaturl" />
     </a>
+    <a href="https://staticaland.github.io/go-whaturl/">
+        <img alt="Docs" src="https://github.com/staticaland/go-whaturl/actions/workflows/pages.yml/badge.svg" />
+    </a>
 </p>
 #+end_html
 
