@@ -75,8 +75,8 @@ cat urls | whaturl
 ** Emacs
 
 I use =reformatter.el= (see [[https://github.com/staticaland/doom-emacs-config/blob/master/modules/editor/reformatter/config.el][my reformatter.el configuration here]]). You may also
-want to check out [[https://github.com/radian-software/apheleia][apheleia]]. Otherwise, =shell-command-on-region= is what you are
-looking for. Read [[https://www.masteringemacs.org/article/executing-shell-commands-emacs][Executing Shell Commands in Emacs]] to learn more.
+want to check out [[https://github.com/radian-software/apheleia][Apheleia]]. Otherwise, =shell-command-on-region= ([[https://www.gnu.org/software/emacs/manual/html_node/emacs/Single-Shell.html][docs]]) is what
+you are looking for. Read [[https://www.masteringemacs.org/article/executing-shell-commands-emacs][Executing Shell Commands in Emacs]] to learn more.
 
 
 ** Vim
