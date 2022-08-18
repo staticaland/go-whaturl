@@ -14,8 +14,10 @@ _github_username: "staticaland"
 _project_name:    "go-whaturl"
 _binary_name:     "whaturl"
 
-_go_version:  "1.18.5"
-_cue_version: "0.4.3"
+_go_version:         "1.18.5"
+_cue_version:        "0.4.3"
+_hugo_version:       "0.101.0"
+_goreleaser_version: "1.10.3"
 
 _paths_go: [
 	"**.go",

@@ -48,7 +48,7 @@ goreleaser: _#workflow & {
 					uses: "goreleaser/goreleaser-action@68acf3b1adf004ac9c2f0a4259e85c5f66e99bef"
 					with: {
 						distribution: "goreleaser"
-						version:      "latest"
+						version:      "v" + _goreleaser_version
 						args:         "release --rm-dist"
 					}
 					env: {

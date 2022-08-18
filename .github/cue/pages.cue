@@ -37,7 +37,7 @@ pages: _#workflow & {
 			name: "Build GitHub Pages with Hugo"
 
 			env: {
-				HUGO_VERSION: "0.101.0"
+				HUGO_VERSION: _hugo_version
 				HUGO_ENV:     "production"
 			}
 
