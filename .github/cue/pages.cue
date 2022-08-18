@@ -50,7 +50,7 @@ pages: _#workflow & {
 				_#step & {
 					name: "Setup Pages"
 					id:   "pages"
-					uses: "actions/configure-pages@e22fa7ebed408f1742133d89012dbe1dad4646fc"
+					uses: "actions/configure-pages@f71d3d08f0abfe9cbb23e527dc9f633beabf97bc"
 				},
 				_#step & {
 					name:                "Build with Hugo"
