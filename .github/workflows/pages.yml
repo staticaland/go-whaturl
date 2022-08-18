@@ -5,6 +5,9 @@ name: Deploy Hugo site to Pages
   push:
     branches:
       - main
+    paths:
+      - '**.org'
+      - '**.md'
   workflow_dispatch: null
 defaults:
   run:
@@ -38,7 +41,7 @@ jobs:
         run: |
           hugo \
           	--minify \
-          	--baseURL ${{ steps.pages.outputs.base_url }}
+          	--baseURL "${{ steps.pages.outputs.base_url }}"
         working-directory: ./docs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@6a57e48bf6d74ddc95cf0cfa136a09fff27067b8

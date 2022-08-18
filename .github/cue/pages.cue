@@ -5,7 +5,13 @@ pages: _#workflow & {
 	name: "Deploy Hugo site to Pages"
 
 	on: {
-		push: branches: _branches_default
+		push: {
+			branches: _branches_default
+			paths: [
+				"**.org",
+				"**.md",
+			]
+		}
 		workflow_dispatch: null
 	}
 
@@ -58,7 +64,7 @@ pages: _#workflow & {
 					run: """
 						hugo \\
 							--minify \\
-							--baseURL ${{ steps.pages.outputs.base_url }}
+							--baseURL "${{ steps.pages.outputs.base_url }}"
 
 						"""
 				},
