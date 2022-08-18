@@ -9,6 +9,8 @@ go: _#workflow & {
 		paths:    _paths_go
 	}
 
+	permissions: contents: "read"
+
 	jobs: build: _#job & {
 
 		name: "Build and test the Go code"
