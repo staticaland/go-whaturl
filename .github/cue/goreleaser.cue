@@ -42,6 +42,7 @@ goreleaser: _#workflow & {
 					run:  "git fetch --force --tags"
 				},
 				_#stepSetupGo,
+				_#stepDockerLogin,
 				_#step & {
 					name: "Run GoReleaser"
 					uses: "goreleaser/goreleaser-action@68acf3b1adf004ac9c2f0a4259e85c5f66e99bef"

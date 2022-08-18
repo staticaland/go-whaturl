@@ -6,6 +6,14 @@ dotgoreleaser: {
 		binary: _binary_name
 	}]
 
+	dockers: [
+		{
+			image_templates: [
+				"staticaland/whaturl",
+			]
+		},
+	]
+
 	brews: [{
 		name:        _binary_name
 		description: "A CLI for creating titled markup language links out of text containing raw URLs"

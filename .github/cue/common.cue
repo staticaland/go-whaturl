@@ -2,6 +2,14 @@ package whaturl
 
 import "json.schemastore.org/github"
 
+// Maybe use something like this to generate docs
+_actions: "setup-go": {
+	org:        "actions"
+	repository: "setup-go"
+	version:    "84cbf8094393cdc5fe1fe1671ff2647332956b1a"
+	a:          org + "/" + repository + "@" + version
+}
+
 _github_username: "staticaland"
 _project_name:    "go-whaturl"
 _binary_name:     "whaturl"
@@ -49,8 +57,13 @@ _#step: {
 }
 
 _#stepSetupGo: _#step & {
+
+	_org:        "actions"
+	_repository: "setup-go"
+	_version:    "84cbf8094393cdc5fe1fe1671ff2647332956b1a"
+
 	name: "Set up Go"
-	uses: "actions/setup-go@84cbf8094393cdc5fe1fe1671ff2647332956b1a" // v3.2.1
+	uses: _org + "/" + _repository + "@" + _version
 	with: "go-version": _go_version
 	...
 }
@@ -70,6 +83,15 @@ _#stepCheckout: _#step & {
 _#stepGitDiffCheck: _#step & {
 	name: "Check commit is clean"
 	run:  "test -z \"$(git status --porcelain)\" || (git status; git diff; false)"
+}
+
+_#stepDockerLogin: _#step & {
+	name: "Login to Docker Hub"
+	uses: "docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b"
+	with: {
+		username: "${{ secrets.DOCKERHUB_USERNAME }}"
+		password: "${{ secrets.DOCKERHUB_TOKEN }}"
+	}
 }
 
 _stepIdGitCheck: "git-check"
