@@ -61,9 +61,10 @@ _#stepSetupGo: _#step & {
 	_org:        "actions"
 	_repository: "setup-go"
 	_version:    "84cbf8094393cdc5fe1fe1671ff2647332956b1a"
+	_uses:       _org + "/" + _repository + "@" + _version
 
 	name: "Set up Go"
-	uses: _org + "/" + _repository + "@" + _version
+	uses: _uses
 	with: "go-version": _go_version
 	...
 }
@@ -73,9 +74,10 @@ _#stepSetupCue: _#step & {
 	_org:        "cue-lang"
 	_repository: "setup-cue"
 	_version:    "143c2fe537047bf8c7ead6a30784ad1802e9d991"
+	_uses:       _org + "/" + _repository + "@" + _version
 
 	name: "Setup CUE environment"
-	uses: _org + "/" + _repository + "@" + _version
+	uses: _uses
 	with: version: "v" + _cue_version
 }
 
@@ -84,9 +86,10 @@ _#stepCheckout: _#step & {
 	_org:        "actions"
 	_repository: "checkout"
 	_version:    "2541b1294d2704b0964813337f33b291d3f8596b"
+	_uses:       _org + "/" + _repository + "@" + _version
 
 	name: "Checkout"
-	uses: _org + "/" + _repository + "@" + _version
+	uses: _uses
 	...
 }
 
@@ -95,9 +98,10 @@ _#stepDockerLogin: _#step & {
 	_org:        "docker"
 	_repository: "login-action"
 	_version:    "49ed152c8eca782a232dede0303416e8f356c37b"
+	_uses:       _org + "/" + _repository + "@" + _version
 
 	name: "Login to Docker Hub"
-	uses: _org + "/" + _repository + "@" + _version
+	uses: _uses
 	with: {
 		username: "${{ secrets.DOCKERHUB_USERNAME }}"
 		password: "${{ secrets.DOCKERHUB_TOKEN }}"
