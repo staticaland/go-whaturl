@@ -140,7 +140,7 @@ go run whaturl.go
 #+end_src
 
 
-* Test
+* Tests
 
 #+begin_html
 <p>
@@ -149,6 +149,8 @@ go run whaturl.go
     </a>
 </p>
 #+end_html
+
+You can find some table driven tests in [[./whaturl_test.go][whaturl_test.go]].
 
 #+begin_src sh
 go test
