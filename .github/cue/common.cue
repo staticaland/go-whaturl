@@ -69,29 +69,44 @@ _#stepSetupGo: _#step & {
 }
 
 _#stepSetupCue: _#step & {
+
+	_org:        "cue-lang"
+	_repository: "setup-cue"
+	_version:    "143c2fe537047bf8c7ead6a30784ad1802e9d991"
+
 	name: "Setup CUE environment"
-	uses: "cue-lang/setup-cue@143c2fe537047bf8c7ead6a30784ad1802e9d991"
+	uses: _org + "/" + _repository + "@" + _version
 	with: version: "v" + _cue_version
 }
 
 _#stepCheckout: _#step & {
+
+	_org:        "actions"
+	_repository: "checkout"
+	_version:    "2541b1294d2704b0964813337f33b291d3f8596b"
+
 	name: "Checkout"
-	uses: "actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b" // v3.0.2
+	uses: _org + "/" + _repository + "@" + _version
 	...
+}
+
+_#stepDockerLogin: _#step & {
+
+	_org:        "docker"
+	_repository: "login-action"
+	_version:    "49ed152c8eca782a232dede0303416e8f356c37b"
+
+	name: "Login to Docker Hub"
+	uses: _org + "/" + _repository + "@" + _version
+	with: {
+		username: "${{ secrets.DOCKERHUB_USERNAME }}"
+		password: "${{ secrets.DOCKERHUB_TOKEN }}"
+	}
 }
 
 _#stepGitDiffCheck: _#step & {
 	name: "Check commit is clean"
 	run:  "test -z \"$(git status --porcelain)\" || (git status; git diff; false)"
-}
-
-_#stepDockerLogin: _#step & {
-	name: "Login to Docker Hub"
-	uses: "docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b"
-	with: {
-		username: "${{ secrets.DOCKERHUB_USERNAME }}"
-		password: "${{ secrets.DOCKERHUB_TOKEN }}"
-	}
 }
 
 _stepIdGitCheck: "git-check"
