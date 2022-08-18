@@ -20,7 +20,8 @@ jobs:
     name: Build GitHub Pages with Hugo
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.99.0
+      HUGO_VERSION: 0.101.0
+      HUGO_ENV: production
     steps:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
