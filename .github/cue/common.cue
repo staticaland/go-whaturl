@@ -59,6 +59,14 @@ _#step: {
 }
 
 readmeTable: [
+	{
+		org:        "Organization"
+		repository: "Repository"
+		version:    ""
+		uses:       ""
+		url:        ""
+		url_link:   "URL"
+	},
 	_#stepSetupGo._meta,
 	_#stepSetupCue._meta,
 	_#stepCheckout._meta,
