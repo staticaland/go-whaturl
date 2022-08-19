@@ -3,6 +3,8 @@ package whaturl
 import (
 	"tool/file"
 	"encoding/yaml"
+	"text/tabwriter"
+	"tool/cli"
 )
 
 command: gen: {
@@ -38,4 +40,13 @@ command: gen: {
 		contents: yaml.Marshal(hugo)
 	}
 
+}
+
+// https://github.com/monochromegane/mdt
+command: "ls-steps": task: print: cli.Print & {
+	text: tabwriter.Write([
+		for x in readmeTable {
+			"\(x.org) \t\(x.repository) \t\(x.url_link)"
+		},
+	])
 }
