@@ -37,4 +37,8 @@ workflows: [
 		filename: "../workflows/pages.yml"
 		workflow: pages
 	},
+	{
+		filename: "../workflows/table.yml"
+		workflow: table
+	},
 ]

@@ -19,7 +19,7 @@ jobs:
         run: pipx install tabulate
         working-directory: .github/cue
       - name: Print table
-        run: cue cmd ls-steps | tabulate --format github --sep '\t' -
+        run: cue cmd ls-steps | tabulate --format github --sep ';;;' -
         working-directory: .github/cue
 permissions:
   contents: read

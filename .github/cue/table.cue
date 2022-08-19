@@ -28,7 +28,7 @@ table: _#workflow & {
 				name:                "Print table"
 				"working-directory": ".github/cue"
 
-				run: #"cue cmd ls-steps | tabulate --format github --sep '\t' -"#
+				run: #"cue cmd ls-steps | tabulate --format github --sep ';;;' -"#
 			}]
 	}
 
