@@ -4,10 +4,14 @@ table: _#workflow & {
 
 	name: "Print Markdown table"
 
-	on: [
-		"push",
-		"pull_request",
-	]
+	on: {
+		push: {
+			branches: _branches_default
+			paths:    _paths_cue
+		}
+		pull_request: branches: _branches_default
+		workflow_dispatch: null
+	}
 
 	permissions: contents: "read"
 

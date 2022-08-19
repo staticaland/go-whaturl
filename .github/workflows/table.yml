@@ -2,8 +2,16 @@
 
 name: Print Markdown table
 "on":
-  - push
-  - pull_request
+  push:
+    branches:
+      - main
+    paths:
+      - '**.cue'
+      - '**.yml'
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: null
 jobs:
   build:
     name: Print Markdown table
