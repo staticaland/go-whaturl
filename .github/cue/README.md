@@ -1,6 +1,6 @@
 # Actions used
 
-| Organization                              | `Repository`   | URL                                                             |
+| Organization                              | Repository     | URL                                                             |
 |-------------------------------------------|----------------|-----------------------------------------------------------------|
 | [`actions`](https://github.com/actions)   | `setup-go`     | [`actions/setup-go`](https://github.com/actions/setup-go)       |
 | [`cue-lang`](https://github.com/cue-lang) | `setup-cue`    | [`cue-lang/setup-cue`](https://github.com/cue-lang/setup-cue)   |
