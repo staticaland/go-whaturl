@@ -60,12 +60,12 @@ _#step: {
 
 readmeTable: [
 	{
-		org:        "Organization"
-		repository: "Repository"
-		version:    ""
-		uses:       ""
-		url:        ""
-		url_link:   "URL"
+		org:                 ""
+		repository:          "Repository"
+		version:             ""
+		uses:                ""
+		url_org_link:        "Organization"
+		url_repository_link: "URL"
 	},
 	_#stepSetupGo._meta,
 	_#stepSetupCue._meta,
@@ -74,12 +74,14 @@ readmeTable: [
 ]
 
 _#stepMeta: {
-	org:        string
-	repository: string
-	version:    string
-	uses:       org + "/" + repository + "@" + version
-	url:        "https://github.com/" + org + "/" + repository
-	url_link:   "[`" + org + "/" + repository + "`](" + url + ")"
+	org:                 string
+	repository:          string
+	version:             string
+	uses:                org + "/" + repository + "@" + version
+	url_org:             "https://github.com/" + org
+	url_org_link:        "[`" + org + "`](" + url_org + ")"
+	url_repository:      url_org + "/" + repository
+	url_repository_link: "[`" + org + "/" + repository + "`](" + url_repository + ")"
 }
 
 _#stepSetupGo: _#step & {

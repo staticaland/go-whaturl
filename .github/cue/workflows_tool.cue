@@ -46,7 +46,7 @@ command: gen: {
 command: "ls-steps": task: print: cli.Print & {
 	text: tabwriter.Write([
 		for x in readmeTable {
-			"\(x.org);;;\(x.repository);;;\(x.url_link)"
+			"\(x.url_org_link);;;`\(x.repository)`;;;\(x.url_repository_link)"
 		},
 	])
 }
