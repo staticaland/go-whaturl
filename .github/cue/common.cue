@@ -92,7 +92,7 @@ _#stepSetupGo: _#step & {
 		version:    "84cbf8094393cdc5fe1fe1671ff2647332956b1a"
 	}
 
-	name: "Set up Go"
+	name: "Setup Go environment"
 	uses: _meta.uses
 	with: "go-version": _go_version
 	...

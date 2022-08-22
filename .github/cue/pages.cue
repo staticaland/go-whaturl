@@ -59,7 +59,7 @@ pages: _#workflow & {
 				_#step & {
 					name: "Setup Pages"
 					id:   "pages"
-					uses: "actions/configure-pages@9a141972ca62e4def3a31137a5a086ba5c58572a"
+					uses: "actions/configure-pages@61fd3a3cc1d0a4c8dae3bce7d897863ccdedb25d"
 				},
 				_#step & {
 					name:                "Build with Hugo"
@@ -93,7 +93,7 @@ pages: _#workflow & {
 			steps: [{
 				name: "Deploy to GitHub Pages"
 				id:   "deployment"
-				uses: "actions/deploy-pages@e490850a64fea2143eb618fcd4453e397842ae0c"
+				uses: "actions/deploy-pages@a87638c69ce253619c881e20b8c40a3ed5aeec2c"
 			}]
 		}
 	}
