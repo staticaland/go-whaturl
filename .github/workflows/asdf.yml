@@ -26,15 +26,15 @@ jobs:
       - id: newestVersion
         name: Get Newest Version
         run: |
-          LATEST_VERSION=$(asdf latest "${{ inputs.plugin }}" "${{ inputs.constraint }}")
-          echo "Latest (${{ inputs.constraint }}): $LATEST_VERSION"
+          LATEST_VERSION=$(asdf latest '${{ inputs.plugin }}' '${{ inputs.constraint }}')
+          echo 'Latest (${{ inputs.constraint }}): $LATEST_VERSION'
           echo ::set-output name=LATEST_VERSION::${LATEST_VERSION}
       - name: Try Installing new version
         run: |
-          asdf install "${{ inputs.plugin }}" "${{ steps.newestVersion.outputs.LATEST_VERSION }}"
+          asdf install '${{ inputs.plugin }}' '${{ steps.newestVersion.outputs.LATEST_VERSION }}'
       - name: Apply latest version to .tool-versions
         run: |
-          asdf local "${{ inputs.plugin }}" "${{ steps.newestVersion.outputs.LATEST_VERSION }}"
+          asdf local '${{ inputs.plugin }}' '${{ steps.newestVersion.outputs.LATEST_VERSION }}'
       - name: Create pull request
         uses: peter-evans/create-pull-request@18f90432bedd2afd6a825469ffd38aa24712a91d
         with:

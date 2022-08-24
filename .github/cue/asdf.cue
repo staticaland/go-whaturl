@@ -40,8 +40,8 @@ asdf: {
 				name: "Get Newest Version"
 				id:   "newestVersion"
 				run: """
-					LATEST_VERSION=$(asdf latest "${{ inputs.plugin }}" "${{ inputs.constraint }}")
-					echo "Latest (${{ inputs.constraint }}): $LATEST_VERSION"
+					LATEST_VERSION=$(asdf latest '${{ inputs.plugin }}' '${{ inputs.constraint }}')
+					echo 'Latest (${{ inputs.constraint }}): $LATEST_VERSION'
 					echo ::set-output name=LATEST_VERSION::${LATEST_VERSION}
 
 					"""
@@ -49,14 +49,14 @@ asdf: {
 			_#step & {
 				name: "Try Installing new version"
 				run: """
-					asdf install "${{ inputs.plugin }}" "${{ steps.newestVersion.outputs.LATEST_VERSION }}"
+					asdf install '${{ inputs.plugin }}' '${{ steps.newestVersion.outputs.LATEST_VERSION }}'
 
 					"""
 			},
 			_#step & {
 				name: "Apply latest version to .tool-versions"
 				run: """
-					asdf local "${{ inputs.plugin }}" "${{ steps.newestVersion.outputs.LATEST_VERSION }}"
+					asdf local '${{ inputs.plugin }}' '${{ steps.newestVersion.outputs.LATEST_VERSION }}'
 
 					"""
 			},
