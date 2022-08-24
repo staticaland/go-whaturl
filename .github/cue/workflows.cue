@@ -41,4 +41,8 @@ workflows: [
 		filename: "../workflows/table.yml"
 		workflow: table
 	},
+	{
+		filename: "../workflows/asdf.yml"
+		workflow: asdf
+	},
 ]
