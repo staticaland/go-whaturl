@@ -89,7 +89,7 @@ _#stepSetupGo: _#step & {
 	_meta: _#stepMeta & {
 		org:        "actions"
 		repository: "setup-go"
-		version:    "84cbf8094393cdc5fe1fe1671ff2647332956b1a"
+		version:    "268d8c0ca0432bb2cf416faae41297df9d262d7f"
 	}
 
 	name: "Setup Go environment"
