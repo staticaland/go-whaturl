@@ -140,6 +140,18 @@ _#stepDockerLogin: _#step & {
 	}
 }
 
+_#stepCreatePR: _#step & {
+
+	_meta: _#stepMeta & {
+		org:        "peter-evans"
+		repository: "create-pull-request"
+		version:    "18f90432bedd2afd6a825469ffd38aa24712a91d"
+	}
+
+	name: "Create pull request"
+	uses: _meta.uses
+}
+
 _#stepGitDiffCheck: _#step & {
 	name: "Check commit is clean"
 	run:  "test -z \"$(git status --porcelain)\" || (git status; git diff; false)"

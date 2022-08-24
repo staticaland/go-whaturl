@@ -31,7 +31,6 @@ asdf: {
 		}
 
 		steps: [
-
 			_#stepCheckout,
 			_#step & {
 				name: "Setup asdf"
@@ -41,8 +40,8 @@ asdf: {
 				name: "Get Newest Version"
 				id:   "newestVersion"
 				run: """
-					LATEST_VERSION=$(asdf latest \"${{ inputs.plugin }}\" \"${{ inputs.constraint }}\")
-					echo \"Latest (${{ inputs.constraint }}): $LATEST_VERSION\"
+					LATEST_VERSION=$(asdf latest "${{ inputs.plugin }}" "${{ inputs.constraint }}")
+					echo "Latest (${{ inputs.constraint }}): $LATEST_VERSION"
 					echo ::set-output name=LATEST_VERSION::${LATEST_VERSION}
 
 					"""
@@ -50,20 +49,18 @@ asdf: {
 			_#step & {
 				name: "Try Installing new version"
 				run: """
-					asdf install \"${{ inputs.plugin }}\" \"${{ steps.newestVersion.outputs.LATEST_VERSION }}\"
+					asdf install "${{ inputs.plugin }}" "${{ steps.newestVersion.outputs.LATEST_VERSION }}"
 
 					"""
 			},
 			_#step & {
 				name: "Apply latest version to .tool-versions"
 				run: """
-					asdf local \"${{ inputs.plugin }}\" \"${{ steps.newestVersion.outputs.LATEST_VERSION }}\"
+					asdf local "${{ inputs.plugin }}" "${{ steps.newestVersion.outputs.LATEST_VERSION }}"
 
 					"""
 			},
-			_#step & {
-				name: "Create pull request"
-				uses: "peter-evans/create-pull-request@18f90432bedd2afd6a825469ffd38aa24712a91d"
+			_#stepCreatePR & {
 				with: {
 					"add-paths":      ".tool-versions"
 					"commit-message": "Update ${{ inputs.plugin }} to ${{ steps.newestVersion.outputs.LATEST_VERSION }}"
@@ -72,7 +69,8 @@ asdf: {
 					"delete-branch":  true
 					labels:           "asdf,enhancement"
 				}
-			}]
+			},
+		]
 	}
 
 }
