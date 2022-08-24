@@ -2,14 +2,6 @@ package whaturl
 
 import "json.schemastore.org/github"
 
-// Maybe use something like this to generate docs
-_actions: "setup-go": {
-	org:        "actions"
-	repository: "setup-go"
-	version:    "84cbf8094393cdc5fe1fe1671ff2647332956b1a"
-	a:          org + "/" + repository + "@" + version
-}
-
 _github_username: "staticaland"
 _project_name:    "go-whaturl"
 _binary_name:     "whaturl"
@@ -71,6 +63,7 @@ readmeTable: [
 	_#stepSetupCue._meta,
 	_#stepCheckout._meta,
 	_#stepDockerLogin._meta,
+	_#stepCreatePR._meta,
 ]
 
 _#stepMeta: {
