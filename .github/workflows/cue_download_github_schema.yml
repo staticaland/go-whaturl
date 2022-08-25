@@ -20,13 +20,14 @@ jobs:
       - name: Download GitHub schema
         run: curl https://raw.githubusercontent.com/SchemaStore/schemastore/6fe4707b9d1c5d45cfc8d5b6d56968e65d2bdc38/src/schemas/json/github-workflow.json --output gh-workflows-schema.json
         working-directory: .github/cue/cue.mod/pkg/json.schemastore.org/github
-      - name: Download GitHub schema
-        run: 'cue import --force --package json --path ''#workflow:'' --outfile ./cue.mod/pkg/json.schemastore.org/github/github-workflow.cue jsonschema: gh-workflows-schema.json'
+      - name: Import GitHub schema with CUE
+        run: 'cue import --force --package json --path ''#workflow:'' --outfile github-workflow.cue jsonschema: gh-workflows-schema.json'
         working-directory: .github/cue/cue.mod/pkg/json.schemastore.org/github
       - name: Create pull request
         uses: peter-evans/create-pull-request@18f90432bedd2afd6a825469ffd38aa24712a91d
         with:
           add-paths: _(filename_gh_workflow_cue_schema)
+          path: .github/cue/cue.mod/pkg/json.schemastore.org/github
           commit-message: Update...
           title: Update...
           delete-branch: true
