@@ -79,7 +79,11 @@ following CUE code:
 
 #+begin_src cue
 _#step: {
-	uses?: =~"^[^@]+@[a-f0-9]{40}" // Must pin with SHA1
+	name:  =~"^[A-Z].*"                                             // Sentence case
+	uses?: =~"(^docker:[^:]+:[A-Fa-f0-9]{64}$|^[^@]+@[a-f0-9]{40})" // Must pin with SHA1 (Git) or SHA256 (Docker)
 	...
 }
 #+end_src
+
+Here we start to get the feel of some great business value, in terms of security
+and consistency.
