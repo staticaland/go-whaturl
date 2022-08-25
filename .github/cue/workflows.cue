@@ -49,4 +49,8 @@ workflows: [
 		filename: "../workflows/dasel.yml"
 		workflow: dasel
 	},
+	{
+		filename: "../workflows/cue_download_github_schema.yml"
+		workflow: cue_download_github_schema
+	},
 ]
