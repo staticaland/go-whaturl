@@ -33,7 +33,7 @@ cue_download_github_schema: _#workflow & {
 			_#step & {
 				name:                "Download GitHub schema"
 				"working-directory": ".github/cue/cue.mod/pkg/json.schemastore.org/github"
-				run:                 "cue import --force --package json --path '#workflow:' --outfile \(_filename_gh_workflow_schema) jsonschema: \(_filename_gh_workflow_cue_schema)"
+				run:                 "cue import --force --package json --path '#workflow:' --outfile \(_filename_gh_workflow_cue_schema) jsonschema: \(_filename_gh_workflow_schema)"
 			},
 			_#stepCreatePR & {
 				with: {
