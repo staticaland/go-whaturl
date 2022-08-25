@@ -1,11 +1,12 @@
 * About CUE (Configure, Unify, Execute)
 
-I am trying out [[https://cuelang.org/][CUE]]. At the moment there are no [[https://cuelang.org/docs/tutorials/tour/intro/schema/][schema definitions]]. It would be
-possible to import the [[https://www.schemastore.org/json/][GitHub Workflow JSON schema]] to create one ([[https://youtu.be/Ey3ca0K2h2U?t=1244][video]]). If we
-had a schema, we could validate the workflows. However, this is already covered
-by [[https://github.com/rhysd/actionlint][actionlint]] which runs through the [[https://github.com/github/super-linter][Super-Linter]] (similar to [[https://github.com/oxsecurity/megalinter][Mega-Linter]]). The
-command to import the schema is something like =cue import -l '#Workflow:' -p
-github jsonschema: <filename>=.
+I am trying out [[https://cuelang.org/][CUE]]. When I first started, I had no [[https://cuelang.org/docs/tutorials/tour/intro/schema/][schema definitions]]. It's
+possible to import the [[https://www.schemastore.org/json/][GitHub Workflow JSON schema]] to create one ([[https://youtu.be/Ey3ca0K2h2U?t=1244][video]]). [[https://github.com/cue-unity/unity/blob/main/internal/ci/vendor/vendor_tool.cue][You
+can use a CUE command to automate this process]]. When we have a schema, we can
+validate the workflows. However, this is already covered by [[https://github.com/rhysd/actionlint][actionlint]] which
+runs through the [[https://github.com/github/super-linter][Super-Linter]] (similar to [[https://github.com/oxsecurity/megalinter][Mega-Linter]]). The command to import
+the schema is something like =cue import -l '#workflow:' -p github jsonschema:
+<filename>=.
 
 When we've created some schemas and sub-schemas we can use =cue trim= to remove
 boilerplate from the workflows. This is because [[https://cuelang.org/docs/tutorials/tour/intro/constraints/][values defined in a constraint
@@ -13,15 +14,20 @@ don't have to be included in the data]].
 
 All of the CUE files here have been created with =cue import=.
 
+I use [[https://melpa.org/#/cue-mode][cue-mode for Emacs]]. It's fun to press =C-c C-c-= to evaluate the buffer.
+
+
+* Caveats
+
 One small caveat is that Dependabot won't be able to create pull requests for
 the CUE files.
 
-I use [[https://melpa.org/#/cue-mode][cue-mode for Emacs]]. It's fun to press =C-c C-c-= to evaluate the buffer.
 
 * Export to YAML
 
-This is the most primitive way to export CUE files to JSON. A more efficient way
-is to use [[https://cuelang.org/docs/usecases/scripting/][the CUE scripting layer]].
+When you first start out, the easiest way to get started is to use the =export=
+command. This is the most primitive way to export CUE files to JSON. A more
+efficient way is to use [[https://cuelang.org/docs/usecases/scripting/][the CUE scripting layer]].
 
 #+begin_src sh
 cue export --out yaml goreleaser.cue > goreleaser.cue
@@ -52,12 +58,16 @@ and its ancestor directories within the module are combined. We call that an
 instance of a package.
 #+end_quote
 
+
 * Functions
 
 Using [[https://pkg.go.dev/cuelang.org/go/pkg/encoding/json#Marshal][the Marshal function]] to create Slack payloads. We could get a hold of the
 Slack schema to verify this struct. OK.
 
-https://github.com/pulumi/pulumi-yaml/tree/main/examples/cue-eks ... .
+If you ever want to import configuration files that include embedded structured
+YAML or JSON strings you should check out the =-R / --recursive= flag of the
+=import= command.
+
 
 * Scorecards
 
