@@ -37,7 +37,7 @@ cue_download_github_schema: _#workflow & {
 			},
 			_#stepCreatePR & {
 				with: {
-					"add-paths":      ".github/cue/cue.mod/pkg/json.schemastore.org/github/_(filename_gh_workflow_cue_schema)"
+					"add-paths":      ".github/cue/cue.mod/pkg/json.schemastore.org/github/\(_filename_gh_workflow_cue_schema)"
 					"commit-message": "Update..."
 					title:            "Update..."
 					"delete-branch":  true

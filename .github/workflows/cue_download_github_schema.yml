@@ -26,7 +26,7 @@ jobs:
       - name: Create pull request
         uses: peter-evans/create-pull-request@18f90432bedd2afd6a825469ffd38aa24712a91d
         with:
-          add-paths: .github/cue/cue.mod/pkg/json.schemastore.org/github/_(filename_gh_workflow_cue_schema)
+          add-paths: .github/cue/cue.mod/pkg/json.schemastore.org/github/github-workflow.cue
           commit-message: Update...
           title: Update...
           delete-branch: true
