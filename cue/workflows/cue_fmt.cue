@@ -22,7 +22,7 @@ cue_formatting_check: common.#workflow & {
 			common.#stepSetupCue,
 			common.#step & {
 				name:                "Check formatting"
-				"working-directory": ".github/cue"
+				"working-directory": "cue"
 				run:                 "cue fmt -s"
 			},
 			common.#stepGitDiffCheck,
