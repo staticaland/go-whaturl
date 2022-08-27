@@ -23,7 +23,7 @@ cue_yaml_reconciliation_check: common.#workflow & {
 				"working-directory": "cue"
 				run: """
 					rm ../.github/workflows/*.yml
-					rm ../dependabot.yml
+					rm ../.github/dependabot.yml
 					rm ../.goreleaser.yaml
 					rm ../.tool-versions
 					rm ../docs/config.yml

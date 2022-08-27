@@ -20,7 +20,7 @@ jobs:
       - name: Regenerate YAML from CUE
         run: |-
           rm ../.github/workflows/*.yml
-          rm ../dependabot.yml
+          rm ../.github/dependabot.yml
           rm ../.goreleaser.yaml
           rm ../.tool-versions
           rm ../docs/config.yml
