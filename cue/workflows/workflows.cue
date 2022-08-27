@@ -6,6 +6,15 @@ _#w: {
 	file:   string
 	schema: (common.#workflow & {})
 }
+<<<<<<< HEAD
+=======
+
+_#w: {
+	file: =~"^[a-z-]+\\.yml" // Lowercase and hyphens, must end with .yml (as opposed to .yaml)
+}
+
+workflows: [..._#w]
+>>>>>>> 0bc216151e876014c441de263f249b0303a3bb7e
 
 _#w: {
 	file: =~"^[a-z-]+\\.yml" // Lowercase and hyphens, must end with .yml (as opposed to .yaml)
