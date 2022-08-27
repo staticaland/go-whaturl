@@ -52,7 +52,7 @@ workflows: [
 		schema: codeql
 	},
 	{
-		file:   "cue_yaml_reconciliation_check.yml"
+		file:   "cue-yaml-reconciliation-check.yml"
 		schema: cue_yaml_reconciliation_check
 	},
 	{
