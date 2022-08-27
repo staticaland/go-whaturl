@@ -2,10 +2,16 @@ package workflows
 
 import "github.com/staticaland/go-whaturl/cue/common"
 
-workflows: [...{
+_#w: {
 	file:   string
 	schema: (common.#workflow & {})
-}]
+}
+
+_#w: {
+	file: =~"^[a-z-]+\\.yml" // Lowercase and hyphens, must end with .yml (as opposed to .yaml)
+}
+
+workflows: [..._#w]
 
 // Make constraint for dashes in yml file names. Enforce file type. yml not yaml.
 // ^[a-z-]+.yml
