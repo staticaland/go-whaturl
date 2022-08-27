@@ -8,6 +8,7 @@ _#w: {
 }
 
 _#w: {
+	// Same style as https://github.com/actions/starter-workflows
 	file: =~"^[a-z-]+\\.yml" // Lowercase and hyphens, must end with .yml (as opposed to .yaml)
 }
 
