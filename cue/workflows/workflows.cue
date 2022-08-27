@@ -63,4 +63,8 @@ workflows: [
 		file:   "table.yml"
 		schema: table
 	},
+	{
+		file:   "dependency-review.yml"
+		schema: dependency_review
+	},
 ]
