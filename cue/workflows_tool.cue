@@ -5,6 +5,7 @@ import (
 	"path"
 	"tool/file"
 
+	"github.com/staticaland/go-whaturl/cue/common"
 	"github.com/staticaland/go-whaturl/cue/misc"
 	"github.com/staticaland/go-whaturl/cue/workflows"
 )
@@ -21,6 +22,16 @@ command: gen: {
 	"config.yml": file.Create & {
 		filename: "../docs/config.yml"
 		contents: yaml.Marshal(misc.hugo)
+	}
+
+	"dependabot.yml": file.Create & {
+		filename: "../.github/dependabot.yml"
+		contents: yaml.Marshal(misc.dependabot)
+	}
+
+	".tool-versions": file.Create & {
+		filename: "../.tool-versions"
+		contents: "golang " + common.go_version + "\ncue " + common.cue_version + "\n"
 	}
 
 	for w in workflows.workflows {
