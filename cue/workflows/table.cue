@@ -21,20 +21,18 @@ table: common.#workflow & {
 
 		name: "Print Markdown table"
 
+		defaults: run: "working-directory": common.cue_dir
+
 		steps: [
 			common.#stepCheckout,
 			common.#stepSetupCue,
 			common.#step & {
-				name:                "Install Tabulate"
-				"working-directory": ".github/cue"
-
-				run: "pipx install tabulate"
+				name: "Install Tabulate"
+				run:  "pipx install tabulate"
 			},
 			common.#step & {
-				name:                "Print table"
-				"working-directory": ".github/cue"
-
-				run: #"cue cmd ls-steps | tabulate --header --format github --sep ';;;' -"#
+				name: "Print table"
+				run:  #"cue cmd ls-steps | tabulate --header --format github --sep ';;;' -"#
 			}]
 	}
 

@@ -4,6 +4,8 @@ github_username: "staticaland"
 project_name:    "go-whaturl"
 binary_name:     "whaturl"
 
+cue_dir: "cue"
+
 go_version:         "1.18.5"
 cue_version:        "0.4.3"
 hugo_version:       "0.101.0"

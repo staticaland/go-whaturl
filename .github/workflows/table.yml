@@ -15,6 +15,9 @@ jobs:
   build:
     name: Print Markdown table
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cue
     steps:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
@@ -24,9 +27,7 @@ jobs:
           version: v0.4.3
       - name: Install Tabulate
         run: pipx install tabulate
-        working-directory: .github/cue
       - name: Print table
         run: cue cmd ls-steps | tabulate --header --format github --sep ';;;' -
-        working-directory: .github/cue
 permissions:
   contents: read
