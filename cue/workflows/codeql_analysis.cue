@@ -38,16 +38,16 @@ codeql: common.#workflow & {
 			common.#step & {
 				// Initializes the CodeQL tools for scanning.
 				name: "Initialize CodeQL"
-				uses: "github/codeql-action/init@7fee4ca032ac341c12486c4c06822c5221c76533"
+				uses: "github/codeql-action/init@b398f525a5587552e573b247ac661067fafa920b"
 				with: languages: "${{ matrix.language }}"
 			},
 			common.#step & {
 				name: "Autobuild"
-				uses: "github/codeql-action/autobuild@7fee4ca032ac341c12486c4c06822c5221c76533"
+				uses: "github/codeql-action/autobuild@b398f525a5587552e573b247ac661067fafa920b"
 			},
 			common.#step & {
 				name: "Perform CodeQL Analysis"
-				uses: "github/codeql-action/analyze@7fee4ca032ac341c12486c4c06822c5221c76533"
+				uses: "github/codeql-action/analyze@b398f525a5587552e573b247ac661067fafa920b"
 			}]
 	}
 

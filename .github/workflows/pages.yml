@@ -36,7 +36,7 @@ jobs:
           && sudo dpkg -i "${{ runner.temp }}/hugo.deb"
       - id: pages
         name: Setup Pages
-        uses: actions/configure-pages@61fd3a3cc1d0a4c8dae3bce7d897863ccdedb25d
+        uses: actions/configure-pages@45efe609374726fd94570f0e5a4c32f41675e823
       - name: Build with Hugo
         run: |
           hugo \
@@ -44,7 +44,7 @@ jobs:
           	--baseURL "${{ steps.pages.outputs.base_url }}"
         working-directory: ./docs
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@6a57e48bf6d74ddc95cf0cfa136a09fff27067b8
+        uses: actions/upload-pages-artifact@a597aecd27af1cf14095ccaa29169358e3d91e28
         with:
           path: ./docs/public
   deploy:

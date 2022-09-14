@@ -61,7 +61,7 @@ pages: common.#workflow & {
 				common.#step & {
 					name: "Setup Pages"
 					id:   "pages"
-					uses: "actions/configure-pages@61fd3a3cc1d0a4c8dae3bce7d897863ccdedb25d"
+					uses: "actions/configure-pages@45efe609374726fd94570f0e5a4c32f41675e823"
 				},
 				common.#step & {
 					name:                "Build with Hugo"
@@ -75,7 +75,7 @@ pages: common.#workflow & {
 				},
 				common.#step & {
 					name: "Upload artifact"
-					uses: "actions/upload-pages-artifact@6a57e48bf6d74ddc95cf0cfa136a09fff27067b8"
+					uses: "actions/upload-pages-artifact@a597aecd27af1cf14095ccaa29169358e3d91e28"
 					with: path: "./docs/public"
 				}]
 
