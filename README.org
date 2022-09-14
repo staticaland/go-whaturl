@@ -11,8 +11,8 @@
     <a href="https://github.com/staticaland/go-whaturl/actions/workflows/superlinter.yml">
         <img alt="Lint" src="https://github.com/staticaland/go-whaturl/actions/workflows/superlinter.yml/badge.svg?branch=main" />
     </a>
-    <a href="https://github.com/staticaland/go-whaturl/actions/workflows/cue_yaml_reconciliation_check.yml">
-        <img alt="CUE" src="https://github.com/staticaland/go-whaturl/actions/workflows/cue_yaml_reconciliation_check.yml/badge.svg?branch=main" />
+    <a href="https://github.com/staticaland/go-whaturl/actions/workflows/cue-yaml-reconciliation-check.yml">
+        <img alt="CUE" src="https://github.com/staticaland/go-whaturl/actions/workflows/cue-yaml-reconciliation-check.yml/badge.svg?branch=main" />
     </a>
     <a href="https://github.com/staticaland/go-whaturl/actions/workflows/goreleaser.yml">
         <img alt="Release" src="https://github.com/staticaland/go-whaturl/actions/workflows/goreleaser.yml/badge.svg" />
