@@ -32,7 +32,7 @@ jobs:
           args: --from=org --to=gfm --output docs/content/index.md README.org
       - name: Install Hugo CLI
         run: |
-          wget -O "${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb" \
+          wget -O "${{ runner.temp }}/hugo.deb" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb" \
           && sudo dpkg -i "${{ runner.temp }}/hugo.deb"
       - id: pages
         name: Setup Pages
