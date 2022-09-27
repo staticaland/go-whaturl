@@ -36,7 +36,7 @@ jobs:
           && sudo dpkg -i "${{ runner.temp }}/hugo.deb"
       - id: pages
         name: Setup Pages
-        uses: actions/configure-pages@45efe609374726fd94570f0e5a4c32f41675e823
+        uses: actions/configure-pages@2ce6d5eaa1f7b36a30c9b424cd73fab661857cfe
       - name: Build with Hugo
         run: |
           hugo \
