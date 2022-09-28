@@ -23,7 +23,7 @@ jobs:
         run: 'cue import --force --package json --path ''#workflow:'' --outfile github-workflow.cue jsonschema: gh-workflows-schema.json'
         working-directory: .github/cue/cue.mod/pkg/json.schemastore.org/github
       - name: Create pull request
-        uses: peter-evans/create-pull-request@18f90432bedd2afd6a825469ffd38aa24712a91d
+        uses: peter-evans/create-pull-request@671dc9c9e0c2d73f07fa45a3eb0220e1622f0c5f
         with:
           add-paths: .github/cue/cue.mod/pkg/json.schemastore.org/github/github-workflow.cue
           commit-message: Update...
