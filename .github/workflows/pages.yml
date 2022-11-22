@@ -57,7 +57,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@c2379ec5e719a934ec613038d081879b58c9d7df
+        uses: actions/deploy-pages@20a4baa1095bad40ba7d6ca0d9abbc220b76603f
 permissions:
   contents: read
   pages: write
