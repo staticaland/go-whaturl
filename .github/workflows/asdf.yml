@@ -37,7 +37,7 @@ jobs:
         run: |
           asdf local '${{ inputs.plugin }}' '${{ steps.newestVersion.outputs.LATEST_VERSION }}'
       - name: Create pull request
-        uses: peter-evans/create-pull-request@18f90432bedd2afd6a825469ffd38aa24712a91d
+        uses: peter-evans/create-pull-request@2b011faafdcbc9ceb11414d64d0573f37c774b04
         with:
           add-paths: .tool-versions
           commit-message: Update ${{ inputs.plugin }} to ${{ steps.newestVersion.outputs.LATEST_VERSION }}
