@@ -10,6 +10,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
       - name: Dependency review
-        uses: actions/dependency-review-action@11310527b429536e263dc6cc47873e608189ba21
+        uses: actions/dependency-review-action@c090f4e553673e6e505ea70d6a95362ee12adb94
 permissions:
   contents: read
