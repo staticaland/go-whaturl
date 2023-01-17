@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Lint Code Base
-        uses: github/super-linter/slim@01d3218744765b55c3b5ffbb27e50961e50c33c5
+        uses: github/super-linter/slim@454ba4482ce2cd0c505bc592e83c06e1e37ade61
         env:
           VALIDATE_ALL_CODEBASE: ${{ github.event_name == 'workflow_dispatch' }}
           DEFAULT_BRANCH: main
