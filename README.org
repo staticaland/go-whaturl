@@ -41,6 +41,32 @@ I like [GitHub: Where the world builds software · GitHub](https://github.com)
 Inspired by [[http://brettterpstra.com/2015/02/18/titler-system-service/][Titler by Brett Terpstra]] for Mac OS and [[https://github.com/rexim/org-cliplink][org-cliplink]] for Emacs.
 
 
+* Installation
+
+[[https://github.com/staticaland/go-whaturl/releases][Check out releases for pre-built binaries]].
+
+A Homebrew formula is included at [[./Formula/whaturl.rb][Formula/whaturl.rb]].
+
+#+begin_src sh
+brew tap staticaland/go-whaturl https://github.com/staticaland/go-whaturl
+brew install whaturl
+#+end_src
+
+If you watch the project (Watch → Custom → Releases) you can easily upgrade to
+the latest version when notified:
+
+#+begin_src sh
+brew upgrade whaturl
+#+end_src
+
+To uninstall:
+
+#+begin_src sh
+brew uninstall whaturl
+brew untap staticaland/go-whaturl
+#+end_src
+
+
 * Usage
 
 #+begin_src sh :wrap src sh :results raw :exports results
@@ -90,35 +116,6 @@ vnoremap <leader>l :!whaturl<CR>
 #+end_example
 
 This is reminiscent of the [[https://blog.sanctum.geek.nz/vim-koans/][Vim Kōan Master Wq and the Markdown acolyte]].
-
-
-* Installation
-
-[[https://github.com/staticaland/go-whaturl/releases][Check out releases for pre-built binaries]].
-
-
-** Homebrew
-
-A Homebrew formula is included at [[./Formula/whaturl.rb][Formula/whaturl.rb]].
-
-#+begin_src sh
-brew tap staticaland/go-whaturl https://github.com/staticaland/go-whaturl
-brew install whaturl
-#+end_src
-
-If you watch the project (Watch → Custom → Releases) you can easily upgrade to
-the latest version when notified:
-
-#+begin_src sh
-brew upgrade whaturl
-#+end_src
-
-To uninstall:
-
-#+begin_src sh
-brew uninstall whaturl
-brew untap staticaland/go-whaturl
-#+end_src
 
 
 * Build and run
