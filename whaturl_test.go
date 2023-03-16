@@ -12,6 +12,7 @@ func TestGetTitle(t *testing.T) {
 	client := &http.Client{
 		Timeout: 5 * time.Second,
 	}
+
 	ctx := context.Background()
 
 	testCases := []struct {
