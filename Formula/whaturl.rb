@@ -5,12 +5,12 @@
 class Whaturl < Formula
   desc "A CLI for creating titled markup language links out of text containing raw URLs"
   homepage "https://github.com/staticaland/go-whaturl"
-  version "0.9.0"
+  version "0.11.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/staticaland/go-whaturl/releases/download/v0.9.0/go-whaturl_0.9.0_darwin_arm64.tar.gz"
-      sha256 "0569d85eec9cad24d9192fde2b46420156983c6da8824ba50381f0dfd9cde73f"
+      url "https://github.com/staticaland/go-whaturl/releases/download/v0.11.0/go-whaturl_0.11.0_darwin_arm64.tar.gz"
+      sha256 "839b7b3dcc2864a7a084fd78a03f10d10ed4c64617b7adddb23e002808b3e8e3"
 
       def install
         bin.install "whaturl"
@@ -20,8 +20,8 @@ class Whaturl < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/staticaland/go-whaturl/releases/download/v0.9.0/go-whaturl_0.9.0_linux_arm64.tar.gz"
-      sha256 "5fb2f524e8af93f44272c25d2875b78314e12acdc8f3e23e4b6e1f7f96b2e912"
+      url "https://github.com/staticaland/go-whaturl/releases/download/v0.11.0/go-whaturl_0.11.0_linux_arm64.tar.gz"
+      sha256 "438d2bcce14ce940c4b6e9ebf66b52ea8b0599faaaef76c455ec812548a429ed"
 
       def install
         bin.install "whaturl"
